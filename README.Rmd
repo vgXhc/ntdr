@@ -42,8 +42,11 @@ The data are returned in a long format, which makes it easy to create plots and 
 
 ```{r ridership-chart}
 library(ggplot2)
-get_ntd(agency = c("City of Madison", "Milwaukee County"), modes = "MB") |> 
-  ggplot(aes(month, value, color = Agency)) +
-  geom_line()
+get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |> 
+  dplyr::filter(TOS == "DO") |> 
+  ggplot(aes(date, value, color = Agency)) +
+  geom_line() +
+  labs(title = "Monthly unlinked passenger trips in Madison and Lansing")
 ```
 
+This package is still heavily under development and not ready for production use. NTD data has many quirks, and so please use it with care.

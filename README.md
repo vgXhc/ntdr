@@ -28,14 +28,14 @@ library(ntdr)
 ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
 head(ntd_madison)
 #> # A tibble: 6 × 12
-#>   5 digit …¹ 4 dig…² Agency Active Repor…³   UZA UZA N…⁴ Modes TOS   month value
-#>        <dbl> <chr>   <chr>  <chr>  <chr>   <dbl> <chr>   <chr> <chr> <chr> <dbl>
-#> 1      50005 5005    City … Inact… Full R…    92 Madiso… DR    DO    JAN02  5629
-#> 2      50005 5005    City … Inact… Full R…    92 Madiso… DR    DO    FEB02  5137
-#> 3      50005 5005    City … Inact… Full R…    92 Madiso… DR    DO    MAR02  5665
-#> 4      50005 5005    City … Inact… Full R…    92 Madiso… DR    DO    APR02  5607
-#> 5      50005 5005    City … Inact… Full R…    92 Madiso… DR    DO    MAY02  5866
-#> 6      50005 5005    City … Inact… Full R…    92 Madiso… DR    DO    JUN02  5167
+#>   5 digit…¹ 4 dig…² Agency Active Repor…³   UZA UZA N…⁴ Modes TOS   month  value
+#>       <dbl> <chr>   <chr>  <chr>  <chr>   <dbl> <chr>   <chr> <chr> <chr>  <dbl>
+#> 1     50005 5005    City … Active Full R…    92 Madiso… MB    DO    JAN02 8.66e5
+#> 2     50005 5005    City … Active Full R…    92 Madiso… MB    DO    FEB02 1.05e6
+#> 3     50005 5005    City … Active Full R…    92 Madiso… MB    DO    MAR02 9.63e5
+#> 4     50005 5005    City … Active Full R…    92 Madiso… MB    DO    APR02 1.03e6
+#> 5     50005 5005    City … Active Full R…    92 Madiso… MB    DO    MAY02 8.56e5
+#> 6     50005 5005    City … Active Full R…    92 Madiso… MB    DO    JUN02 6.25e5
 #> # … with 1 more variable: date <date>, and abbreviated variable names
 #> #   ¹​`5 digit NTD ID`, ²​`4 digit NTD ID`, ³​`Reporter Type`, ⁴​`UZA Name`
 ```
@@ -45,10 +45,15 @@ plots and do other cool things:
 
 ``` r
 library(ggplot2)
-get_ntd(agency = c("City of Madison", "Milwaukee County"), modes = "MB") |> 
-  ggplot(aes(month, value, color = Agency)) +
-  geom_line()
-#> Warning: Removed 244 rows containing missing values (`geom_line()`).
+get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |> 
+  dplyr::filter(TOS == "DO") |> 
+  ggplot(aes(date, value, color = Agency)) +
+  geom_line() +
+  labs(title = "Monthly unlinked passenger trips in Madison and Lansing")
 ```
 
 <img src="man/figures/README-ridership-chart-1.png" width="100%" />
+
+This package is still heavily under development and not ready for
+production use. NTD data has many quirks, and so please use it with
+care.

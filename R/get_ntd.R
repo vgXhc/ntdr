@@ -1,4 +1,4 @@
-Agency <- month <- TOS <- NULL
+Agency <- month <- TOS <- Modes <- NULL
 
 #' Get NTD data
 #'
@@ -24,7 +24,7 @@ get_ntd <- function(data_type = "adjusted", ntd_variable = "UPT", agency, modes 
 
   all_data <- readxl::read_excel(ntd_temp, sheet = sheet)
   all_data |>
-    dplyr::filter(Agency %in% agency & modes %in% modes & TOS == "DO") |>
+    dplyr::filter(Agency %in% agency & Modes %in% modes) |>
     tidyr::pivot_longer(cols = 10:ncol(all_data), names_to = "month", values_to = "value") |>
     dplyr::mutate(date = lubridate::my(month))
 }
