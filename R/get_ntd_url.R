@@ -9,18 +9,20 @@
 #'
 #' @examples
 #' get_ntd_url()
-get_ntd_url <- function(data_type = "adjusted"){
+get_ntd_url <- function(data_type = "adjusted") {
   if (data_type == "raw") {
-    page_url <- "https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release"
+    page_url <-
+      "https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release"
   }
   if (data_type == "adjusted") {
-    page_url <- "https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
+    page_url <-
+      "https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
   }
   ntd_page <- rvest::read_html(page_url)
   ntd_url <- ntd_page |>
     rvest::html_element(".file--x-office-spreadsheet a") |>
     rvest::html_attr("href")
-  ntd_url
+  paste0("https://www.transit.dot.gov", ntd_url)
 }
 
 

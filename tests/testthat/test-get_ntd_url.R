@@ -3,7 +3,7 @@ test_that("multiplication works", {
 })
 
 test_that("returns a URL that starts right", {
-  expect_match(get_ntd_url(), regexp = "^/sites/fta.dot.gov/files/")
+  expect_match(get_ntd_url(), regexp = "^https://www.transit.dot.gov/sites/fta.dot.gov/files/")
 })
 
 test_that("URL contains the right terms for different data_types", {

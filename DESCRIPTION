@@ -14,8 +14,11 @@ BugReports: https://github.com/vgXhc/ntdr/issues
 Encoding: UTF-8
 LazyData: true
 Imports: 
+    dplyr,
+    lubridate,
+    readxl,
     rvest,
-    stringr
+    tidyr
 RoxygenNote: 7.2.3
 Suggests: 
     testthat (>= 3.0.0)
