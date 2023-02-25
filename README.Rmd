@@ -1,0 +1,49 @@
+---
+output: github_document
+---
+
+<!-- README.md is generated from README.Rmd. Please edit that file -->
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  comment = "#>",
+  fig.path = "man/figures/README-",
+  out.width = "100%"
+)
+```
+
+# ntdr: Retrieve data from the National Transit Database
+
+<!-- badges: start -->
+<!-- badges: end -->
+
+The `ntdr` package provides a convenient interface to retrieve monthly data from the National Transit Database (NTD). Without this package, getting NTD data involves going to the NTD website and downloading and processing a complex Excel workbook.
+
+## Installation
+
+You can install the development version of ntdr from Github:
+
+``` r
+devtools::install_github()
+```
+
+## Example
+
+Basic usage:
+
+```{r example}
+library(ntdr)
+ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
+head(ntd_madison)
+```
+
+The data are returned in a long format, which makes it easy to create plots and do other cool things:
+
+```{r cars}
+library(ggplot2)
+get_ntd(agency = c("City of Madison", "Milwaukee County"), modes = "MB") |> 
+  ggplot(aes(month, value, color = Agency)) +
+  geom_line()
+```
+
