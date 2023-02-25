@@ -40,7 +40,7 @@ head(ntd_madison)
 
 The data are returned in a long format, which makes it easy to create plots and do other cool things:
 
-```{r cars}
+```{r ridership-chart}
 library(ggplot2)
 get_ntd(agency = c("City of Madison", "Milwaukee County"), modes = "MB") |> 
   ggplot(aes(month, value, color = Agency)) +

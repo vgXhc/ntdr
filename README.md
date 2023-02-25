@@ -48,7 +48,7 @@ library(ggplot2)
 get_ntd(agency = c("City of Madison", "Milwaukee County"), modes = "MB") |> 
   ggplot(aes(month, value, color = Agency)) +
   geom_line()
-#> Warning: Removed 304 rows containing missing values (`geom_line()`).
+#> Warning: Removed 244 rows containing missing values (`geom_line()`).
 ```
 
-<img src="man/figures/README-cars-1.png" width="100%" />
+<img src="man/figures/README-ridership-chart-1.png" width="100%" />
