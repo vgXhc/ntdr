@@ -1,11 +1,19 @@
 Package: ntdr
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Retrieve Data from the National Transit Database
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Authors@R: person(
+    "Harald", "Kliems", 
+    email = "kliems@gmail.com", 
+    role = c("cre", "aut"),
+    comment = c(ORCID = "0000-0003-2542-0047"))
+Description: A package that downloads the latest National Transit Database 
+    data, processes it and returns in a tidy data format.
+License: MIT + file LICENSE
+BugReports: https://github.com/vgXhc/ntdr/issues
 Encoding: UTF-8
 LazyData: true
+Imports: 
+    rvest,
+    stringr
+RoxygenNote: 7.2.3
