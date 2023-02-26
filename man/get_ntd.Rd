@@ -4,16 +4,24 @@
 \alias{get_ntd}
 \title{Get NTD data}
 \usage{
-get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency, modes = "MB")
+get_ntd(
+  agency = "all",
+  data_type = "adjusted",
+  ntd_variable = "UPT",
+  modes = "all",
+  cache = FALSE
+)
 }
 \arguments{
+\item{agency}{Name of the transit agency to retrieve. Defaults to `all` agencies}
+
 \item{data_type}{Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments.}
 
 \item{ntd_variable}{Which variable to return. `UPT` for unlinked passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or `VOMS` for vehicles operated in maximum service.}
 
-\item{agency}{Name of the transit agency to retrieve.}
+\item{modes}{Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all` modes.}
 
-\item{modes}{Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail)}
+\item{cache}{Cache downloaded data. Defaults to `FALSE`. Not implemented yet.}
 }
 \value{
 A data frame of monthly NTD data with the requested ntd_variable in the `value` column

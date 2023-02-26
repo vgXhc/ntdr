@@ -10,6 +10,10 @@
 #' @examples
 #' get_ntd_url()
 get_ntd_url <- function(data_type = "adjusted") {
+  #check for invalid parameters
+  if (!data_type %in% c("raw", "adjusted")) {
+    stop("Invalid parameter for data_type. Only `raw` and `adjusted` are allowed.")
+  }
   if (data_type == "raw") {
     page_url <-
       "https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release"
