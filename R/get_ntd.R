@@ -6,7 +6,7 @@ Agency <- month <- TOS <- Modes <- NULL
 #' @param data_type Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments.
 #' @param ntd_variable Which variable to return. `UPT` for unlinked passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or `VOMS` for vehicles operated in maximum service.
 #' @param modes Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all` modes.
-#' @param cache Cache downloaded data. Defaults to `FALSE`. Not implemented yet.
+#' @param cache Cache downloaded data. Defaults to `FALSE`.
 #'
 #' @return A data frame of monthly NTD data with the requested ntd_variable in the `value` column
 #' @export
@@ -35,19 +35,24 @@ get_ntd <-
       } else
         all_data
     }
+    ntd_tempfile_name <- "ntd_download.xlsx"
+    ntd_tempfile_path <- paste0(tempdir(), "/", ntd_tempfile_name)
 
-    # # logic for caching files
-    # if (cache == TRUE) {
-    #   # check if cache file exists
-    #   if (file.exists() ) {
-    #     #do nothing
-    #   }
-    #     #else download file code
-    # }
-    ntd_temp <- tempfile()
-    utils::download.file(get_ntd_url(data_type), ntd_temp, mode = "wb")
+    # logic for caching files
+    if (cache == TRUE) {
+      # check if cache file doesn't exist
+      if (!file.exists(ntd_tempfile_path) ) {
+        utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, mode = "wb")
+      }
+        #else do nothing
 
-    all_data <- readxl::read_excel(ntd_temp, sheet = sheet)
+    } else { #if cache isn't set to TRUE
+      utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, mode = "wb")
+    }
+
+
+
+    all_data <- readxl::read_excel(ntd_tempfile_path, sheet = sheet)
 
     #filter data to agency if agency parameter is provided
     all_data <- filter_all_data(filter_var = "Agency", filter_param = agency)
