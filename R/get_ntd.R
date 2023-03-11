@@ -1,4 +1,4 @@
-Agency <- month <- TOS <- Modes <- NULL
+agency <- month <- TOS <- Modes <- NULL
 
 #' Get NTD data
 #'
@@ -41,31 +41,73 @@ get_ntd <-
     # logic for caching files
     if (cache == TRUE) {
       # check if cache file doesn't exist
-      if (!file.exists(ntd_tempfile_path) ) {
+      if (!file.exists(ntd_tempfile_path)) {
         utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, mode = "wb")
       }
-        #else do nothing
+      #else do nothing
 
-    } else { #if cache isn't set to TRUE
+    } else {
+      #if cache isn't set to TRUE
       utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, mode = "wb")
     }
 
+    #to read in spreadsheet we need to determine its number of columns
+    get_spreadsheet_ncol <- function(ntd_tempfile_path,
+                                     sheet) {
+      dummy_sheet <- readxl::read_xlsx(ntd_tempfile_path,
+                                       sheet = sheet,
+                                       skip = 10,
+                                       n_max = 1)
+      ncol(dummy_sheet) - 9 #subtract first 9 columns
+    }
 
+    # adds a month to a date and returns data as character vector
+    add_a_month <- function(x) {
+      start_date <- lubridate::ymd("2002-01-01") #first date reported in NTD
+      lubridate::month(start_date) <- x
+      as.character(start_date)
+    }
 
-    all_data <- readxl::read_excel(ntd_tempfile_path, sheet = sheet)
+    # column names for monthly values
+    monthly_col_names <-
+      purrr::map_chr(1:get_spreadsheet_ncol(ntd_tempfile_path, sheet),
+              add_a_month)
+
+    ntd_cols <- c(
+      "ntd_id_5",
+      "ntd_id_4",
+      "agency",
+      "active",
+      "reporter_type",
+      "uza",
+      "uza_name",
+      "modes",
+      "tos",
+      monthly_col_names
+    )
+
+    all_data <- readxl::read_excel(
+      ntd_tempfile_path,
+      sheet = sheet,
+      skip = 3,
+      col_names = ntd_cols
+    )
+
 
     #filter data to agency if agency parameter is provided
-    all_data <- filter_all_data(filter_var = "Agency", filter_param = agency)
-    all_data <- filter_all_data(filter_var = "Modes", filter_param = modes)
+    all_data <-
+      filter_all_data(filter_var = "agency", filter_param = agency)
+    all_data <-
+      filter_all_data(filter_var = "modes", filter_param = modes)
 
-    #filter and pivot data
-    all_data |>
+    #pivot data
+    all_data <- all_data |>
       tidyr::pivot_longer(
         cols = 10:ncol(all_data),
         names_to = "month",
         values_to = "value"
       ) |>
-      dplyr::mutate(date = lubridate::my(month))
+      dplyr::mutate(month = lubridate::ymd(month))
+
+    all_data
   }
-
-

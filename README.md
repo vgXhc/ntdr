@@ -11,12 +11,16 @@ data from the National Transit Database (NTD). Without this package,
 getting NTD data involves going to the NTD website and downloading and
 processing a complex Excel workbook.
 
+This package is still under development and NTD data has many quirks.
+Please use it with care and feel report to [report any
+issues](https://github.com/vgXhc/ntdr/issues)
+
 ## Installation
 
 You can install the development version of ntdr from Github:
 
 ``` r
-devtools::install_github()
+remotes::install_github("https://github.com/vgXhc/ntdr")
 ```
 
 ## Example
@@ -26,18 +30,21 @@ Basic usage:
 ``` r
 library(ntdr)
 ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
+#> New names:
+#> • `2033379` -> `2033379...24`
+#> • `2033379` -> `2033379...26`
 head(ntd_madison)
-#> # A tibble: 6 × 12
-#>   5 digit…¹ 4 dig…² Agency Active Repor…³   UZA UZA N…⁴ Modes TOS   month  value
-#>       <dbl> <chr>   <chr>  <chr>  <chr>   <dbl> <chr>   <chr> <chr> <chr>  <dbl>
-#> 1     50005 5005    City … Active Full R…    92 Madiso… MB    DO    JAN02 8.66e5
-#> 2     50005 5005    City … Active Full R…    92 Madiso… MB    DO    FEB02 1.05e6
-#> 3     50005 5005    City … Active Full R…    92 Madiso… MB    DO    MAR02 9.63e5
-#> 4     50005 5005    City … Active Full R…    92 Madiso… MB    DO    APR02 1.03e6
-#> 5     50005 5005    City … Active Full R…    92 Madiso… MB    DO    MAY02 8.56e5
-#> 6     50005 5005    City … Active Full R…    92 Madiso… MB    DO    JUN02 6.25e5
-#> # … with 1 more variable: date <date>, and abbreviated variable names
-#> #   ¹​`5 digit NTD ID`, ²​`4 digit NTD ID`, ³​`Reporter Type`, ⁴​`UZA Name`
+#> # A tibble: 6 × 11
+#>   ntd_id_5 ntd_id_4 agency   active repor…¹   uza uza_n…² modes tos   month     
+#>   <chr>    <chr>    <chr>    <chr>  <chr>   <dbl> <chr>   <chr> <chr> <date>    
+#> 1 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-01-01
+#> 2 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-02-01
+#> 3 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-03-01
+#> 4 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-04-01
+#> 5 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-05-01
+#> 6 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-06-01
+#> # … with 1 more variable: value <dbl>, and abbreviated variable names
+#> #   ¹​reporter_type, ²​uza_name
 ```
 
 The data are returned in a long format, which makes it easy to create
@@ -46,14 +53,13 @@ plots and do other cool things:
 ``` r
 library(ggplot2)
 get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |> 
-  dplyr::filter(TOS == "DO") |> 
-  ggplot(aes(date, value, color = Agency)) +
+  dplyr::filter(tos == "DO") |> 
+  ggplot(aes(month, value, color = agency)) +
   geom_line() +
   labs(title = "Monthly unlinked passenger trips in Madison and Lansing")
+#> New names:
+#> • `2033379` -> `2033379...24`
+#> • `2033379` -> `2033379...26`
 ```
 
 <img src="man/figures/README-ridership-chart-1.png" width="100%" />
-
-This package is still heavily under development and not ready for
-production use. NTD data has many quirks, and so please use it with
-care.

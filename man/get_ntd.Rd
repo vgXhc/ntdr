@@ -21,7 +21,7 @@ get_ntd(
 
 \item{modes}{Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all` modes.}
 
-\item{cache}{Cache downloaded data. Defaults to `FALSE`. Not implemented yet.}
+\item{cache}{Cache downloaded data. Defaults to `FALSE`.}
 }
 \value{
 A data frame of monthly NTD data with the requested ntd_variable in the `value` column
