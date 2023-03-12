@@ -20,7 +20,9 @@ knitr::opts_chunk$set(
 
 The `ntdr` package provides a convenient interface to retrieve monthly data from the National Transit Database (NTD). Without this package, getting NTD data involves going to the NTD website and downloading and processing a complex Excel workbook.
 
-This package is still under development and NTD data has many quirks. Please use it with care and feel report to [report any issues](https://github.com/vgXhc/ntdr/issues)
+This package was mainly written for my own use, is still under development and NTD data has many quirks. Please use it with care and feel report to [report any issues](https://github.com/vgXhc/ntdr/issues). 
+
+To learn more about the package, visit the package website: [https://vgxhc.github.io/ntdr/](https://vgxhc.github.io/ntdr/). 
 
 ## Installation
 
@@ -39,16 +41,3 @@ library(ntdr)
 ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
 head(ntd_madison)
 ```
-
-The data are returned in a long format, which makes it easy to create plots and do other cool things:
-
-```{r ridership-chart}
-library(ggplot2)
-get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |> 
-  dplyr::filter(tos == "DO") |> 
-  ggplot(aes(month, value, color = agency)) +
-  geom_line() +
-  labs(title = "Monthly unlinked passenger trips in Madison and Lansing")
-```
-
-

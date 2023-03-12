@@ -11,9 +11,13 @@ data from the National Transit Database (NTD). Without this package,
 getting NTD data involves going to the NTD website and downloading and
 processing a complex Excel workbook.
 
-This package is still under development and NTD data has many quirks.
-Please use it with care and feel report to [report any
-issues](https://github.com/vgXhc/ntdr/issues)
+This package was mainly written for my own use, is still under
+development and NTD data has many quirks. Please use it with care and
+feel report to [report any
+issues](https://github.com/vgXhc/ntdr/issues).
+
+To learn more about the package, visit the package website:
+<https://vgxhc.github.io/ntdr/>.
 
 ## Installation
 
@@ -46,20 +50,3 @@ head(ntd_madison)
 #> # … with 1 more variable: value <dbl>, and abbreviated variable names
 #> #   ¹​reporter_type, ²​uza_name
 ```
-
-The data are returned in a long format, which makes it easy to create
-plots and do other cool things:
-
-``` r
-library(ggplot2)
-get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |> 
-  dplyr::filter(tos == "DO") |> 
-  ggplot(aes(month, value, color = agency)) +
-  geom_line() +
-  labs(title = "Monthly unlinked passenger trips in Madison and Lansing")
-#> New names:
-#> • `2033379` -> `2033379...24`
-#> • `2033379` -> `2033379...26`
-```
-
-<img src="man/figures/README-ridership-chart-1.png" width="100%" />
