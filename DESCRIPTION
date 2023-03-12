@@ -28,3 +28,4 @@ Suggests:
     tidyverse
 Config/testthat/edition: 3
 VignetteBuilder: knitr
+URL: https://vgxhc.github.io/ntdr/
