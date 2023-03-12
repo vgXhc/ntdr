@@ -68,7 +68,8 @@
 <!-- badges: start -->
 <!-- badges: end -->
 <p>The <code>ntdr</code> package provides a convenient interface to retrieve monthly data from the National Transit Database (NTD). Without this package, getting NTD data involves going to the NTD website and downloading and processing a complex Excel workbook.</p>
-<p>This package is still under development and NTD data has many quirks. Please use it with care and feel report to <a href="https://github.com/vgXhc/ntdr/issues" class="external-link">report any issues</a></p>
+<p>This package was mainly written for my own use, is still under development and NTD data has many quirks. Please use it with care and feel report to <a href="https://github.com/vgXhc/ntdr/issues" class="external-link">report any issues</a>.</p>
+<p>To learn more about the package, visit the package website: <a href="https://vgxhc.github.io/ntdr/" class="uri">https://vgxhc.github.io/ntdr/</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -98,18 +99,6 @@
 <span><span class="co">#&gt; 6 50005    5005     City of… Inact… Full R…    92 Madiso… MB    DO    2002-06-01</span></span>
 <span><span class="co">#&gt; # … with 1 more variable: value &lt;dbl&gt;, and abbreviated variable names</span></span>
 <span><span class="co">#&gt; #   ¹​reporter_type, ²​uza_name</span></span></code></pre></div>
-<p>The data are returned in a long format, which makes it easy to create plots and do other cool things:</p>
-<div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
-<span><span class="fu"><a href="reference/get_ntd.html">get_ntd</a></span><span class="op">(</span>agency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"City of Madison"</span>, <span class="st">"Capital Area Transportation Authority"</span><span class="op">)</span>, modes <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">tos</span> <span class="op">==</span> <span class="st">"DO"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">month</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">agency</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
-<span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Monthly unlinked passenger trips in Madison and Lansing"</span><span class="op">)</span></span>
-<span><span class="co">#&gt; New names:</span></span>
-<span><span class="co">#&gt; • `2033379` -&gt; `2033379...24`</span></span>
-<span><span class="co">#&gt; • `2033379` -&gt; `2033379...26`</span></span></code></pre></div>
-<p><img src="reference/figures/README-ridership-chart-1.png" width="100%"></p>
 </div>
 </div>
   </main><aside class="col-md-3"><div class="links">
