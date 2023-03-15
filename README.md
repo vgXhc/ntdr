@@ -4,6 +4,8 @@
 # ntdr: Retrieve data from the National Transit Database
 
 <!-- badges: start -->
+
+[![R-CMD-check](https://github.com/vgXhc/ntdr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vgXhc/ntdr/actions/workflows/R-CMD-check.yaml)
 <!-- badges: end -->
 
 The `ntdr` package provides a convenient interface to retrieve monthly
