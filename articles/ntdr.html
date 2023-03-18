@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ntdr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.1.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -40,6 +40,9 @@
 </li>
 <li class="nav-item">
   <a class="nav-link" href="../reference/index.html">Reference</a>
+</li>
+<li class="nav-item">
+  <a class="nav-link" href="../news/index.html">Changelog</a>
 </li>
       </ul>
 <form class="form-inline my-2 my-lg-0" role="search">
@@ -103,30 +106,36 @@ doesn’t have any required parameters:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_ntd.html">get_ntd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; New names:</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `2033379` -&gt; `2033379...24`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `2033379` -&gt; `2033379...26`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...34`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...71`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...95`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...100`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...102`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...139`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span>
 <span><span class="va">ntd_data</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 570,768 × 11</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 570,262 × 12</span></span></span>
 <span><span class="co">#&gt;    ntd_id_5 ntd_id_4 agency  active repor…¹   uza uza_n…² modes tos   month     </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-01-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-02-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-03-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-04-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-05-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-06-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-07-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-08-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-09-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King C… Active Full R…    14 Seattl… DR    PT    2002-10-01</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 570,758 more rows, 1 more variable: value &lt;dbl&gt;, and abbreviated</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   variable names ¹​reporter_type, ²​uza_name</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-01-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-02-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-03-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-04-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-05-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-06-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-07-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-08-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-09-01</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-10-01</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># … with 570,252 more rows, 2 more variables: value &lt;dbl&gt;, ntd_variable &lt;chr&gt;,</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;">#   and abbreviated variable names ¹​reporter_type, ²​uza_name</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ntd_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "ntd_id_5"      "ntd_id_4"      "agency"        "active"       </span></span>
 <span><span class="co">#&gt;  [5] "reporter_type" "uza"           "uza_name"      "modes"        </span></span>
-<span><span class="co">#&gt;  [9] "tos"           "month"         "value"</span></span></code></pre></div>
+<span><span class="co">#&gt;  [9] "tos"           "month"         "value"         "ntd_variable"</span></span></code></pre></div>
 <p>You see that the package downloads a fairly large <code>xlsx</code>
-file from the web and returns a tibble with 570768 rows and 11 columns.
+file from the web and returns a tibble with 570262 rows and 12 columns.
 The first two columns are identifiers for the transit agency; followed
 by a human-readable agency name. Note that the agency name may not be
 what you expect. For example, the name of our local agency in Madison
@@ -157,7 +166,7 @@ usually be how you will find your local agency).</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CB     <span style="text-decoration: underline;">35</span>167</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CC       253</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CR      <span style="text-decoration: underline;">9</span>614</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> DR    <span style="text-decoration: underline;">235</span>290</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> DR    <span style="text-decoration: underline;">234</span>784</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> FB     <span style="text-decoration: underline;">11</span>891</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> HR      <span style="text-decoration: underline;">3</span>795</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> IP      <span style="text-decoration: underline;">1</span>012</span></span>
@@ -174,8 +183,8 @@ like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
 <span><span class="co">#&gt;    tos                                                                 n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> DO                                                             <span style="text-decoration: underline;">291</span>203</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PT                                                             <span style="text-decoration: underline;">242</span>880</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> TX                                                              <span style="text-decoration: underline;">31</span>372</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PT                                                             <span style="text-decoration: underline;">242</span>627</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> TX                                                              <span style="text-decoration: underline;">31</span>119</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> TN                                                               <span style="text-decoration: underline;">2</span>277</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Reduced Reporters                                                 506</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Rural Reporters                                                   506</span></span>
@@ -194,10 +203,11 @@ these, with <code>DO</code> being the regular, fixed route service and
 <code>PT</code> being paratransit or other more specialized forms of
 transit.</p>
 <p>Finally, the <code>month</code> and <code>value</code> variables
-provide the actual transit data for a given month. If you call
-<code><a href="../reference/get_ntd.html">get_ntd()</a></code> without any additional parameters, it will return
-the <code>unlinked passenger trips</code> (UPT) metric for all agencies,
-modes, and types of service.</p>
+provide the actual transit data for a given month. What variable is
+presented by <code>value</code> is in the <code>ntd_variable</code>. If
+you call <code><a href="../reference/get_ntd.html">get_ntd()</a></code> without any additional parameters, it
+will return the <code>unlinked passenger trips</code> (UPT) metric for
+all agencies, modes, and types of service.</p>
 </div>
 <div class="section level2">
 <h2 id="plot-the-data">Plot the data<a class="anchor" aria-label="anchor" href="#plot-the-data"></a>
@@ -212,8 +222,14 @@ plots:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Monthly unlinked passenger trips in Madison and Lansing"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; New names:</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `2033379` -&gt; `2033379...24`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `2033379` -&gt; `2033379...26`</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...34`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...71`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...95`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...100`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...102`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...139`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span></code></pre></div>
 <p><img src="ntdr_files/figure-html/ridership-chart-1.png" width="700"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
