@@ -59,7 +59,7 @@ ntd_data |>
 
 The most common values are `DO`, which is directly operated service, i.e. a transit agency running their own service; and `PT` for "purchased transportation", i.e. a transit agency contracting out services. Often agencies will have an entry for both of these, with `DO` being the regular, fixed route service and `PT` being paratransit or other more specialized forms of transit.
 
-Finally, the `month` and `value` variables provide the actual transit data for a given month. If you call `get_ntd()` without any additional parameters, it will return the `unlinked passenger trips` (UPT) metric for all agencies, modes, and types of service.
+Finally, the `month` and `value` variables provide the actual transit data for a given month. What variable is presented by `value` is in the `ntd_variable`. If you call `get_ntd()` without any additional parameters, it will return the `unlinked passenger trips` (UPT) metric for all agencies, modes, and types of service.
 
 
 # Plot the data

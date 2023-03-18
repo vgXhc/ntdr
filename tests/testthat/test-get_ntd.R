@@ -23,5 +23,14 @@ test_that("column names are correct",
                           "modes",
                           "tos",
                           "month",
-                          "value"
+                          "value",
+                          "ntd_variable"
                         ))})
+
+test_that("ntd variable has correct value",
+          {
+            x <- get_ntd()
+            y <- get_ntd(ntd_variable = "VRM")
+            expect_equal(x$ntd_variable[[1]], "UPT")
+            expect_equal(y$ntd_variable[[1]], "VRM")
+          })

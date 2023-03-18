@@ -107,7 +107,8 @@ get_ntd <-
         names_to = "month",
         values_to = "value"
       ) |>
-      dplyr::mutate(month = lubridate::ymd(month))
+      dplyr::mutate(month = lubridate::ymd(month),
+                    ntd_variable = ntd_variable)
 
     all_data
   }
