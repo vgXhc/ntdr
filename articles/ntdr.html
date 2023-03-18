@@ -156,7 +156,7 @@ areas</a> and <code>uza_name</code> has the name of that area (this will
 usually be how you will find your local agency).</p>
 <p><code>modes</code> denotes the type of transit reported on.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">modes</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 22 × 2</span></span></span>
 <span><span class="co">#&gt;    modes      n</span></span>
@@ -177,8 +177,8 @@ like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
 (<code>AR</code>). You can find documentation of the different modes <a href="https://ftis.org/iNTD-Urban/modes.pdf" class="external-link">here</a>.</p>
 <p>The <code>tos</code> variable represents the “type of service”:</p>
 <div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">tos</span>, sort <span class="op">=</span> <span class="cn">T</span><span class="op">)</span></span>
+<code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu"><a href="https://dplyr.tidyverse.org/reference/count.html" class="external-link">count</a></span><span class="op">(</span><span class="va">tos</span>, sort <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 2</span></span></span>
 <span><span class="co">#&gt;    tos                                                                 n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
@@ -206,8 +206,8 @@ transit.</p>
 provide the actual transit data for a given month. What variable is
 presented by <code>value</code> is in the <code>ntd_variable</code>. If
 you call <code><a href="../reference/get_ntd.html">get_ntd()</a></code> without any additional parameters, it
-will return the <code>unlinked passenger trips</code> (UPT) metric for
-all agencies, modes, and types of service.</p>
+will return the “unlinked passenger trips” (UPT) metric for all
+agencies, modes, and types of service.</p>
 </div>
 <div class="section level2">
 <h2 id="plot-the-data">Plot the data<a class="anchor" aria-label="anchor" href="#plot-the-data"></a>
@@ -215,8 +215,8 @@ all agencies, modes, and types of service.</p>
 <p>The data are returned in a long format, which makes it easy to create
 plots:</p>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_ntd.html">get_ntd</a></span><span class="op">(</span>agency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"City of Madison"</span>, <span class="st">"Capital Area Transportation Authority"</span><span class="op">)</span>, modes <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
-<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">tos</span> <span class="op">==</span> <span class="st">"DO"</span><span class="op">)</span> <span class="op">|&gt;</span> </span>
+<code class="sourceCode R"><span><span class="fu"><a href="../reference/get_ntd.html">get_ntd</a></span><span class="op">(</span>agency <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/c.html" class="external-link">c</a></span><span class="op">(</span><span class="st">"City of Madison"</span>, <span class="st">"Capital Area Transportation Authority"</span><span class="op">)</span>, modes <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
+<span>  <span class="fu">dplyr</span><span class="fu">::</span><span class="fu"><a href="https://dplyr.tidyverse.org/reference/filter.html" class="external-link">filter</a></span><span class="op">(</span><span class="va">tos</span> <span class="op">==</span> <span class="st">"DO"</span><span class="op">)</span> <span class="op">|&gt;</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggplot.html" class="external-link">ggplot</a></span><span class="op">(</span><span class="fu"><a href="https://ggplot2.tidyverse.org/reference/aes.html" class="external-link">aes</a></span><span class="op">(</span><span class="va">month</span>, <span class="va">value</span>, color <span class="op">=</span> <span class="va">agency</span><span class="op">)</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/geom_path.html" class="external-link">geom_line</a></span><span class="op">(</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Monthly unlinked passenger trips in Madison and Lansing"</span><span class="op">)</span> <span class="op">+</span></span>
