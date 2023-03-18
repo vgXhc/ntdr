@@ -44,7 +44,7 @@ NTD data go back as far as 2002, and some agencies no longer actively report dat
 `modes` denotes the type of transit reported on. 
 
 ```{r}
-ntd_data |> 
+ntd_data |>
   count(modes)
 ```
 
@@ -53,21 +53,21 @@ There are a lot of different modes, including rather obscure ones like "Inclined
 The `tos` variable represents the "type of service":
 
 ```{r}
-ntd_data |> 
-  count(tos, sort = T)
+ntd_data |>
+  count(tos, sort = TRUE)
 ```
 
 The most common values are `DO`, which is directly operated service, i.e. a transit agency running their own service; and `PT` for "purchased transportation", i.e. a transit agency contracting out services. Often agencies will have an entry for both of these, with `DO` being the regular, fixed route service and `PT` being paratransit or other more specialized forms of transit.
 
-Finally, the `month` and `value` variables provide the actual transit data for a given month. What variable is presented by `value` is in the `ntd_variable`. If you call `get_ntd()` without any additional parameters, it will return the `unlinked passenger trips` (UPT) metric for all agencies, modes, and types of service.
+Finally, the `month` and `value` variables provide the actual transit data for a given month. What variable is presented by `value` is in the `ntd_variable`. If you call `get_ntd()` without any additional parameters, it will return the "unlinked passenger trips" (UPT) metric for all agencies, modes, and types of service.
 
 
 # Plot the data
 The data are returned in a long format, which makes it easy to create plots:
 
 ```{r ridership-chart}
-get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |> 
-  dplyr::filter(tos == "DO") |> 
+get_ntd(agency = c("City of Madison", "Capital Area Transportation Authority"), modes = "MB") |>
+  dplyr::filter(tos == "DO") |>
   ggplot(aes(month, value, color = agency)) +
   geom_line() +
   labs(title = "Monthly unlinked passenger trips in Madison and Lansing") +

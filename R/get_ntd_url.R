@@ -10,7 +10,7 @@
 #' @examples
 #' get_ntd_url()
 get_ntd_url <- function(data_type = "adjusted") {
-  #check for invalid parameters
+  # check for invalid parameters
   if (!data_type %in% c("raw", "adjusted")) {
     stop("Invalid parameter for data_type. Only `raw` and `adjusted` are allowed.")
   }
@@ -28,7 +28,3 @@ get_ntd_url <- function(data_type = "adjusted") {
     rvest::html_attr("href")
   paste0("https://www.transit.dot.gov", ntd_url)
 }
-
-
-
-
