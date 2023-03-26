@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ntdr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.0</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,9 +88,9 @@ install it from there with <code>remotes::install_github()</code></p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vgxhc.github.io/ntdr/">ntdr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.0</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.1     </span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
@@ -116,20 +116,20 @@ doesn’t have any required parameters:</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span>
 <span><span class="va">ntd_data</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 570,262 × 12</span></span></span>
-<span><span class="co">#&gt;    ntd_id_5 ntd_id_4 agency  active repor…¹   uza uza_n…² modes tos   month     </span></span>
-<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;date&gt;</span>    </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-01-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-02-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-03-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-04-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-05-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-06-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-07-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-08-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-09-01</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King C… Active Full R…    14 Seattl… FB    DO    2002-10-01</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 570,252 more rows, 2 more variables: value &lt;dbl&gt;, ntd_variable &lt;chr&gt;,</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;">#   and abbreviated variable names ¹​reporter_type, ²​uza_name</span></span></span>
+<span><span class="co">#&gt;    ntd_id_5 ntd_id_4 agency      active reporter_type   uza uza_name modes tos  </span></span>
+<span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 570,252 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: month &lt;date&gt;, value &lt;dbl&gt;, ntd_variable &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ntd_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "ntd_id_5"      "ntd_id_4"      "agency"        "active"       </span></span>
 <span><span class="co">#&gt;  [5] "reporter_type" "uza"           "uza_name"      "modes"        </span></span>
@@ -171,7 +171,7 @@ usually be how you will find your local agency).</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> HR      <span style="text-decoration: underline;">3</span>795</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> IP      <span style="text-decoration: underline;">1</span>012</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> LR      <span style="text-decoration: underline;">8</span>855</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># … with 12 more rows</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 12 more rows</span></span></span></code></pre></div>
 <p>There are a lot of different modes, including rather obscure ones
 like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
 (<code>AR</code>). You can find documentation of the different modes <a href="https://ftis.org/iNTD-Urban/modes.pdf" class="external-link">here</a>.</p>
