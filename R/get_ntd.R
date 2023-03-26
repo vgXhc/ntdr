@@ -35,7 +35,7 @@ get_ntd <-
         all_data
       }
     }
-    ntd_tempfile_name <- "ntd_download.xlsx"
+    ntd_tempfile_name <- paste0("ntd_download_", data_type, ".xlsx")
     ntd_tempfile_path <- paste0(tempdir(), "/", ntd_tempfile_name)
 
     # logic for caching files
