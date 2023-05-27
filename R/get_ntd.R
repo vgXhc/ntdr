@@ -3,7 +3,7 @@ agency <- month <- TOS <- Modes <- NULL
 #' Get NTD data
 #'
 #' @param agency Name of the transit agency to retrieve. Defaults to `all` agencies
-#' @param data_type Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments.
+#' @param data_type Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments and estimates
 #' @param ntd_variable Which variable to return. `UPT` for unlinked passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or `VOMS` for vehicles operated in maximum service.
 #' @param modes Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all` modes.
 #' @param cache Cache downloaded data. Defaults to `FALSE`.
@@ -116,3 +116,25 @@ get_ntd <-
 
     all_data
   }
+
+# retrieve URL for downloading NTD data
+get_ntd_url <- function(data_type = "adjusted") {
+  # check for invalid parameters
+  if (!data_type %in% c("raw", "adjusted")) {
+    stop("Invalid parameter for data_type. Only `raw` and `adjusted` are allowed.")
+  }
+  if (data_type == "raw") {
+    page_url <-
+      "https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release"
+  }
+  if (data_type == "adjusted") {
+    page_url <-
+      "https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
+  }
+  ntd_page <- rvest::read_html(page_url)
+  ntd_url <- ntd_page |>
+    rvest::html_element(".file--x-office-spreadsheet a") |>
+    rvest::html_attr("href")
+  paste0("https://www.transit.dot.gov", ntd_url)
+}
+

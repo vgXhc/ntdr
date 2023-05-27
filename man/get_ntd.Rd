@@ -15,7 +15,7 @@ get_ntd(
 \arguments{
 \item{agency}{Name of the transit agency to retrieve. Defaults to `all` agencies}
 
-\item{data_type}{Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments.}
+\item{data_type}{Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments and estimates}
 
 \item{ntd_variable}{Which variable to return. `UPT` for unlinked passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or `VOMS` for vehicles operated in maximum service.}
 
