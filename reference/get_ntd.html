@@ -10,7 +10,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ntdr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -70,7 +70,7 @@
 
 
 <dt>data_type</dt>
-<dd><p>Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments.</p></dd>
+<dd><p>Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments and estimates</p></dd>
 
 
 <dt>ntd_variable</dt>
@@ -104,20 +104,20 @@
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...139`</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span>
 <span class="r-msg co"><span class="r-pr">#&gt;</span> <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,012 × 12</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># A tibble: 1,020 × 12</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    ntd_id_5 ntd_id_4 agency      active reporter_type   uza uza_name modes tos  </span>
 <span class="r-out co"><span class="r-pr">#&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 50005    5005     City of Ma… Inact… Full Reporte…    92 Madison… DR    DO   </span>
-<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,002 more rows</span></span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 1</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 2</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 3</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 4</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 5</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 6</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 7</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 8</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;"> 9</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #BCBCBC;">10</span> 50005    5005     City of Ma… Active Full Reporte…    92 Madison… DR    DO   </span>
+<span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 1,010 more rows</span></span>
 <span class="r-out co"><span class="r-pr">#&gt;</span> <span style="color: #949494;"># ℹ 3 more variables: month &lt;date&gt;, value &lt;dbl&gt;, ntd_variable &lt;chr&gt;</span></span>
 </code></pre></div>
     </div>

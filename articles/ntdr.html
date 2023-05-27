@@ -26,7 +26,7 @@
     
     <a class="navbar-brand me-2" href="../index.html">ntdr</a>
 
-    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.2.1</small>
+    <small class="nav-text text-muted me-auto" data-bs-toggle="tooltip" data-bs-placement="bottom" title="">0.3.0</small>
 
     
     <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
@@ -88,9 +88,9 @@ install it from there with <code>remotes::install_github()</code></p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vgxhc.github.io/ntdr/">ntdr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://tidyverse.tidyverse.org" class="external-link">tidyverse</a></span><span class="op">)</span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Attaching core tidyverse packages</span> ──────────────────────── tidyverse 2.0.0 ──</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">dplyr    </span> 1.1.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">readr    </span> 2.1.4</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">forcats  </span> 1.0.0     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">stringr  </span> 1.5.0</span></span>
-<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.1     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
+<span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">ggplot2  </span> 3.4.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tibble   </span> 3.2.1</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">lubridate</span> 1.9.2     <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">tidyr    </span> 1.3.0</span></span>
 <span><span class="co">#&gt; <span style="color: #00BB00;">✔</span> <span style="color: #0000BB;">purrr    </span> 1.0.1     </span></span>
 <span><span class="co">#&gt; ── <span style="font-weight: bold;">Conflicts</span> ────────────────────────────────────────── tidyverse_conflicts() ──</span></span>
@@ -115,7 +115,7 @@ doesn’t have any required parameters:</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span>
 <span><span class="va">ntd_data</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 570,262 × 12</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 576,300 × 12</span></span></span>
 <span><span class="co">#&gt;    ntd_id_5 ntd_id_4 agency      active reporter_type   uza uza_name modes tos  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
@@ -128,14 +128,20 @@ doesn’t have any required parameters:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 570,252 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 576,290 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: month &lt;date&gt;, value &lt;dbl&gt;, ntd_variable &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ntd_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "ntd_id_5"      "ntd_id_4"      "agency"        "active"       </span></span>
 <span><span class="co">#&gt;  [5] "reporter_type" "uza"           "uza_name"      "modes"        </span></span>
 <span><span class="co">#&gt;  [9] "tos"           "month"         "value"         "ntd_variable"</span></span></code></pre></div>
+<p>By default, the package downloads what the NTD calls “Complete
+Monthly Ridership (with adjustments and estimates).” Alternatively you
+can request <code>raw</code> data (“Raw Monthly Ridership (No
+Adjustments or Estimates)”). For a more detailed discussion of the
+difference between the two data types, see <a href="https://haraldkliems.netlify.app/posts/2023-03-26-understanding-adjusted-data-in-the-national-transit-database/" class="external-link">this
+blog post</a>.</p>
 <p>You see that the package downloads a fairly large <code>xlsx</code>
-file from the web and returns a tibble with 570262 rows and 12 columns.
+file from the web and returns a tibble with 576300 rows and 12 columns.
 The first two columns are identifiers for the transit agency; followed
 by a human-readable agency name. Note that the agency name may not be
 what you expect. For example, the name of our local agency in Madison
@@ -161,16 +167,16 @@ usually be how you will find your local agency).</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 22 × 2</span></span></span>
 <span><span class="co">#&gt;    modes      n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> AG      <span style="text-decoration: underline;">1</span>265</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> AR       253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CB     <span style="text-decoration: underline;">35</span>167</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CC       253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CR      <span style="text-decoration: underline;">9</span>614</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> DR    <span style="text-decoration: underline;">234</span>784</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> FB     <span style="text-decoration: underline;">11</span>891</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> HR      <span style="text-decoration: underline;">3</span>795</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> IP      <span style="text-decoration: underline;">1</span>012</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> LR      <span style="text-decoration: underline;">8</span>855</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> AG      <span style="text-decoration: underline;">1</span>275</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> AR       255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CB     <span style="text-decoration: underline;">35</span>700</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CC       255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CR      <span style="text-decoration: underline;">9</span>690</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> DR    <span style="text-decoration: underline;">237</span>150</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> FB     <span style="text-decoration: underline;">11</span>985</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> HR      <span style="text-decoration: underline;">3</span>825</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> IP      <span style="text-decoration: underline;">1</span>020</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> LR      <span style="text-decoration: underline;">8</span>925</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 12 more rows</span></span></span></code></pre></div>
 <p>There are a lot of different modes, including rather obscure ones
 like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
@@ -182,19 +188,19 @@ like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 2</span></span></span>
 <span><span class="co">#&gt;    tos                                                                 n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> DO                                                             <span style="text-decoration: underline;">291</span>203</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PT                                                             <span style="text-decoration: underline;">242</span>627</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> TX                                                              <span style="text-decoration: underline;">31</span>119</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> TN                                                               <span style="text-decoration: underline;">2</span>277</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Reduced Reporters                                                 506</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Rural Reporters                                                   506</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>                                                                506</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Rolling 12-Month Sum                                              253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Rolling 12-Month Sum with Reduced Reporters                       253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Rolling 12-Month Sum with Reduced and Rural Reporter Estimates    253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Subtotal                                                          253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Subtotal with Reduced Reporters                                   253</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> Subtotal with Reduced and Rural Reporter Estimates                253</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> DO                                                             <span style="text-decoration: underline;">294</span>270</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PT                                                             <span style="text-decoration: underline;">244</span>545</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> TX                                                              <span style="text-decoration: underline;">31</span>365</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> TN                                                               <span style="text-decoration: underline;">3</span>060</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Reduced Reporters                                                 510</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Rural Reporters                                                   510</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>                                                                510</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Rolling 12-Month Sum                                              255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Rolling 12-Month Sum with Reduced Reporters                       255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Rolling 12-Month Sum with Reduced and Rural Reporter Estimates    255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Subtotal with Reduced Reporters                                   255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Subtotal with Reduced and Rural Reporter Estimates                255</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> Total                                                             255</span></span></code></pre></div>
 <p>The most common values are <code>DO</code>, which is directly
 operated service, i.e. a transit agency running their own service; and
 <code>PT</code> for “purchased transportation”, i.e. a transit agency
@@ -229,7 +235,8 @@ plots:</p>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...102`</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...139`</span></span>
 <span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span>
+<span><span class="co">#&gt; Warning: Removed 3 rows containing missing values (`geom_line()`).</span></span></code></pre></div>
 <p><img src="ntdr_files/figure-html/ridership-chart-1.png" width="700"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
