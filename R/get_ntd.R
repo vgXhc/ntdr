@@ -11,7 +11,8 @@ agency <- month <- TOS <- Modes <- NULL
 #' @return A data frame of monthly NTD data with the requested ntd_variable in the `value` column
 #' @export
 #'
-#' @examples get_ntd(agency = "City of Madison", modes = c("MB", "DR"))
+#' @examplesIf interactive()
+#' get_ntd(agency = "City of Madison", modes = c("MB", "DR"))
 get_ntd <-
   function(agency = "all",
            data_type = "adjusted",
