@@ -1,11 +1,11 @@
 Package: ntdr
 Type: Package
 Title: Retrieve Data from the National Transit Database
-Version: 0.2.1
+Version: 0.3.0
 Authors@R: person(
     "Harald", "Kliems", 
     email = "kliems@gmail.com", 
-    role = c("cre", "aut"),
+    role = c("cre", "aut", "cph"),
     comment = c(ORCID = "0000-0003-2542-0047"))
 Description: A package that downloads the latest National Transit Database 
     data, processes it and returns in a tidy data format.

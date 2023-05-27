@@ -21,6 +21,7 @@ remotes::install_github("https://github.com/vgXhc/ntdr", build_vignettes = TRUE)
 ```
 
 In addition to loading the `ntdr` package we also load the `tidyverse`.
+
 ```{r setup}
 library(ntdr)
 library(tidyverse)
@@ -34,6 +35,8 @@ ntd_data <- get_ntd()
 ntd_data
 colnames(ntd_data)
 ```
+
+By default, the package downloads what the NTD calls "Complete Monthly Ridership (with adjustments and estimates)." Alternatively you can request `raw` data ("Raw Monthly Ridership (No Adjustments or Estimates)"). For a more detailed discussion of the difference between the two data types, see [this blog post](https://haraldkliems.netlify.app/posts/2023-03-26-understanding-adjusted-data-in-the-national-transit-database/).
 
 You see that the package downloads a fairly large `xlsx` file from the web and returns a tibble with `r nrow(ntd_data)` rows and `r ncol(ntd_data)` columns. The first two columns are identifiers for the transit agency; followed by a human-readable agency name. Note that the agency name may not be what you expect. For example, the name of our local agency in Madison (Wisconsin) is ["Metro Transit"](https://www.cityofmadison.com/metro). But in the NTD data it is listed as "City of Madison". So if you cannot find your agency, use the `uza_name` variable described below.
 

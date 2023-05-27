@@ -1,3 +1,7 @@
+# ntdr 0.3.0
+* retire `get_ntd_url` as user-facing function
+* update documentation to reflect new NTD language about data type
+
 # ntdr 0.2.1
 * Bugfix: Cache function fixed (https://github.com/vgXhc/ntdr/issues/2)
 
