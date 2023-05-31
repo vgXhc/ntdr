@@ -14,10 +14,10 @@ knitr::opts_chunk$set(
 )
 ```
 
-The ``ntdr`` package is an easy way to access [National Transit Database](https://www.transit.dot.gov/ntd/ntd-data) from R. The package is available on Github, and you can install it from there with `remotes::install_github()`
+The ``ntdr`` package is an easy way to access [National Transit Database](https://www.transit.dot.gov/ntd/ntd-data) from R. The package is available on CRAN, or you can install the latest development version from Github with `remotes::install_github("vgXhc/ntdr")`
 
 ```{r eval=FALSE}
-remotes::install_github("https://github.com/vgXhc/ntdr", build_vignettes = TRUE)
+install.packages("ntdr")
 ```
 
 In addition to loading the `ntdr` package we also load the `tidyverse`.

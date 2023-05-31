@@ -6,6 +6,8 @@
 <!-- badges: start -->
 
 [![R-CMD-check](https://github.com/vgXhc/ntdr/actions/workflows/R-CMD-check.yaml/badge.svg)](https://github.com/vgXhc/ntdr/actions/workflows/R-CMD-check.yaml)
+[![CRAN
+status](https://www.r-pkg.org/badges/version/ntdr)](https://cran.r-project.org/package=ntdr)
 <!-- badges: end -->
 
 The `ntdr` package provides a convenient interface to retrieve monthly
@@ -27,7 +29,6 @@ install.packages("ntdr")
 
 
 # Alternatively, install the latest development version from GitHub:
-# install.packages("devtools")
 remotes::install_github("vgXhc/ntdr")
 ```
 
@@ -37,6 +38,7 @@ Basic usage:
 
 ``` r
 library(ntdr)
+#> Warning: package 'ntdr' was built under R version 4.2.3
 ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
 #> New names:
 #> • `22526` -> `22526...34`
