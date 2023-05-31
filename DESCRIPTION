@@ -7,12 +7,11 @@ Authors@R: person(
     email = "kliems@gmail.com", 
     role = c("cre", "aut", "cph"),
     comment = c(ORCID = "0000-0003-2542-0047"))
-Description: A package that downloads the latest National Transit Database 
-    data, processes it and returns in a tidy data format.
+Description: Downloads the latest 'National Transit Database' 
+    data, processes it, and returns in a tidy data format.
 License: MIT + file LICENSE
 BugReports: https://github.com/vgXhc/ntdr/issues
 Encoding: UTF-8
-LazyData: true
 Imports: 
     dplyr,
     lubridate,

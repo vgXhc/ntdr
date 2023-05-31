@@ -30,5 +30,7 @@ A data frame of monthly NTD data with the requested ntd_variable in the `value` 
 Get NTD data
 }
 \examples{
+\dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
 get_ntd(agency = "City of Madison", modes = c("MB", "DR"))
+\dontshow{\}) # examplesIf}
 }
