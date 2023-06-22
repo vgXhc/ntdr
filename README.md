@@ -1,7 +1,7 @@
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
 
-# ntdr: Retrieve data from the National Transit Database
+# ntdr: Retrieve data from the National Transit Database <a href="https://vgxhc.github.io/ntdr/"><img src="man/figures/logo.png" align="right" height="139" /></a>
 
 <!-- badges: start -->
 
@@ -38,17 +38,14 @@ Basic usage:
 
 ``` r
 library(ntdr)
-#> Warning: package 'ntdr' was built under R version 4.2.3
 ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
 #> New names:
-#> • `22526` -> `22526...34`
-#> • `22523` -> `22523...71`
-#> • `22526` -> `22526...95`
-#> • `23344` -> `23344...100`
-#> • `22523` -> `22523...102`
-#> • `23344` -> `23344...139`
-#> • `19423` -> `19423...147`
-#> • `19423` -> `19423...187`
+#> • `156143` -> `156143...13`
+#> • `156143` -> `156143...14`
+#> • `141871` -> `141871...16`
+#> • `141871` -> `141871...17`
+#> • `146253` -> `146253...42`
+#> • `146253` -> `146253...43`
 head(ntd_madison)
 #> # A tibble: 6 × 12
 #>   ntd_id_5 ntd_id_4 agency       active reporter_type   uza uza_name modes tos  
