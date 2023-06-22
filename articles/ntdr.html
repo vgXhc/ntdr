@@ -7,12 +7,19 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <meta name="description" content="ntdr">
 <title>ntdr • ntdr</title>
+<!-- favicons --><link rel="icon" type="image/png" sizes="16x16" href="../favicon-16x16.png">
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32x32.png">
+<link rel="apple-touch-icon" type="image/png" sizes="180x180" href="../apple-touch-icon.png">
+<link rel="apple-touch-icon" type="image/png" sizes="120x120" href="../apple-touch-icon-120x120.png">
+<link rel="apple-touch-icon" type="image/png" sizes="76x76" href="../apple-touch-icon-76x76.png">
+<link rel="apple-touch-icon" type="image/png" sizes="60x60" href="../apple-touch-icon-60x60.png">
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.2.2/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.2.2/bootstrap.bundle.min.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
 <!-- bootstrap-toc --><script src="https://cdn.jsdelivr.net/gh/afeld/bootstrap-toc@v1.0.1/dist/bootstrap-toc.min.js" integrity="sha256-4veVQbu7//Lk5TSmc7YV48MxtMy98e26cf5MrgZYnwo=" crossorigin="anonymous"></script><!-- headroom.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/headroom.min.js" integrity="sha256-AsUX4SJE1+yuDu5+mAVzJbuYNPHj/WroHuZ8Ir/CkE0=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/headroom/0.11.0/jQuery.headroom.min.js" integrity="sha256-ZX/yNShbjqsohH1k95liqY9Gd8uOiE1S4vZc+9KQ1K4=" crossorigin="anonymous"></script><!-- clipboard.js --><script src="https://cdnjs.cloudflare.com/ajax/libs/clipboard.js/2.0.6/clipboard.min.js" integrity="sha256-inc5kl9MA1hkeYUt+EC3BhlIgyp/2jDIyBLS6k3UxPI=" crossorigin="anonymous"></script><!-- search --><script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/6.4.6/fuse.js" integrity="sha512-zv6Ywkjyktsohkbp9bb45V6tEMoWhzFzXis+LrMehmJZZSys19Yxf1dopHx7WzIKxr5tK2dVcYmaCk2uqdjF4A==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/autocomplete.js/0.38.0/autocomplete.jquery.min.js" integrity="sha512-GU9ayf+66Xx2TmpxqJpliWbT5PiGYxpaG8rfnBEk1LL8l1KGkRShhngwdXK1UgqhAzWpZHSiYPc09/NwDQIGyg==" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/mark.min.js" integrity="sha512-5CYOlHXGh6QpOFA/TeTylKLWfB3ftPsde7AnmhuitiTX4K5SqCLBeKro6sPS8ilsz1Q4NRx3v8Ko2IBiszzdww==" crossorigin="anonymous"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="ntdr">
 <meta property="og:description" content="ntdr">
+<meta property="og:image" content="https://vgxhc.github.io/ntdr/logo.png">
 <!-- mathjax --><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/MathJax.js" integrity="sha256-nvJJv9wWKEm88qvoQl9ekL2J+k/RWIsaSScxxlsrv8k=" crossorigin="anonymous"></script><script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/config/TeX-AMS-MML_HTMLorMML.js" integrity="sha256-84DKXVJXs0/F8OTMzX4UR909+jtl4G7SPypPavF+GfA=" crossorigin="anonymous"></script><!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.3/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
@@ -68,7 +75,7 @@
 
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
-      <img src="" class="logo" alt=""><h1>ntdr</h1>
+      <img src="../logo.png" class="logo" alt=""><h1>ntdr</h1>
             
       
       <small class="dont-index">Source: <a href="https://github.com/vgXhc/ntdr/blob/HEAD/vignettes/ntdr.Rmd" class="external-link"><code>vignettes/ntdr.Rmd</code></a></small>
@@ -107,29 +114,27 @@ doesn’t have any required parameters:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_ntd.html">get_ntd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; New names:</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...34`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...71`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...95`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...100`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...102`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...139`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `156143` -&gt; `156143...13`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `156143` -&gt; `156143...14`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `141871` -&gt; `141871...16`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `141871` -&gt; `141871...17`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `146253` -&gt; `146253...42`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `146253` -&gt; `146253...43`</span></span>
 <span><span class="va">ntd_data</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 576,300 × 12</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 579,072 × 12</span></span></span>
 <span><span class="co">#&gt;    ntd_id_5 ntd_id_4 agency      active reporter_type   uza uza_name modes tos  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… FB    DO   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 576,290 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King Count… Active Full Reporte…    14 Seattle… DR    TX   </span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 579,062 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: month &lt;date&gt;, value &lt;dbl&gt;, ntd_variable &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ntd_data</span><span class="op">)</span></span>
 <span><span class="co">#&gt;  [1] "ntd_id_5"      "ntd_id_4"      "agency"        "active"       </span></span>
@@ -142,7 +147,7 @@ Adjustments or Estimates)”). For a more detailed discussion of the
 difference between the two data types, see <a href="https://haraldkliems.netlify.app/posts/2023-03-26-understanding-adjusted-data-in-the-national-transit-database/" class="external-link">this
 blog post</a>.</p>
 <p>You see that the package downloads a fairly large <code>xlsx</code>
-file from the web and returns a tibble with 576300 rows and 12 columns.
+file from the web and returns a tibble with 579072 rows and 12 columns.
 The first two columns are identifiers for the transit agency; followed
 by a human-readable agency name. Note that the agency name may not be
 what you expect. For example, the name of our local agency in Madison
@@ -168,16 +173,16 @@ usually be how you will find your local agency).</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 22 × 2</span></span></span>
 <span><span class="co">#&gt;    modes      n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> AG      <span style="text-decoration: underline;">1</span>275</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> AR       255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CB     <span style="text-decoration: underline;">35</span>700</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CC       255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CR      <span style="text-decoration: underline;">9</span>690</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> DR    <span style="text-decoration: underline;">237</span>150</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> FB     <span style="text-decoration: underline;">11</span>985</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> HR      <span style="text-decoration: underline;">3</span>825</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> IP      <span style="text-decoration: underline;">1</span>020</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> LR      <span style="text-decoration: underline;">8</span>925</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> AG      <span style="text-decoration: underline;">1</span>280</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> AR       256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CB     <span style="text-decoration: underline;">35</span>840</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CC       256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> CR      <span style="text-decoration: underline;">9</span>728</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> DR    <span style="text-decoration: underline;">238</span>336</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> FB     <span style="text-decoration: underline;">12</span>032</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> HR      <span style="text-decoration: underline;">3</span>840</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> IP      <span style="text-decoration: underline;">1</span>024</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> LR      <span style="text-decoration: underline;">8</span>960</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 12 more rows</span></span></span></code></pre></div>
 <p>There are a lot of different modes, including rather obscure ones
 like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
@@ -189,19 +194,19 @@ like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 13 × 2</span></span></span>
 <span><span class="co">#&gt;    tos                                                                 n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                                                           <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> DO                                                             <span style="text-decoration: underline;">294</span>270</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PT                                                             <span style="text-decoration: underline;">244</span>545</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> TX                                                              <span style="text-decoration: underline;">31</span>365</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> TN                                                               <span style="text-decoration: underline;">3</span>060</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Reduced Reporters                                                 510</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Rural Reporters                                                   510</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>                                                                510</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Rolling 12-Month Sum                                              255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Rolling 12-Month Sum with Reduced Reporters                       255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Rolling 12-Month Sum with Reduced and Rural Reporter Estimates    255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Subtotal with Reduced Reporters                                   255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Subtotal with Reduced and Rural Reporter Estimates                255</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> Total                                                             255</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> DO                                                             <span style="text-decoration: underline;">295</span>424</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> PT                                                             <span style="text-decoration: underline;">245</span>760</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> TX                                                              <span style="text-decoration: underline;">31</span>744</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> TN                                                               <span style="text-decoration: underline;">3</span>072</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> Reduced Reporters                                                 512</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> Rural Reporters                                                   512</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> <span style="color: #BB0000;">NA</span>                                                                512</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> Rolling 12-Month Sum                                              256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> Rolling 12-Month Sum with Reduced Reporters                       256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> Rolling 12-Month Sum with Reduced and Rural Reporter Estimates    256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> Subtotal with Reduced Reporters                                   256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> Subtotal with Reduced and Rural Reporter Estimates                256</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> Total                                                             256</span></span></code></pre></div>
 <p>The most common values are <code>DO</code>, which is directly
 operated service, i.e. a transit agency running their own service; and
 <code>PT</code> for “purchased transportation”, i.e. a transit agency
@@ -229,15 +234,12 @@ plots:</p>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/labs.html" class="external-link">labs</a></span><span class="op">(</span>title <span class="op">=</span> <span class="st">"Monthly unlinked passenger trips in Madison and Lansing"</span><span class="op">)</span> <span class="op">+</span></span>
 <span>  <span class="fu"><a href="https://ggplot2.tidyverse.org/reference/ggtheme.html" class="external-link">theme_minimal</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="co">#&gt; New names:</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...34`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...71`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22526` -&gt; `22526...95`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...100`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `22523` -&gt; `22523...102`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `23344` -&gt; `23344...139`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...147`</span></span>
-<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `19423` -&gt; `19423...187`</span></span>
-<span><span class="co">#&gt; Warning: Removed 3 rows containing missing values (`geom_line()`).</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `156143` -&gt; `156143...13`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `156143` -&gt; `156143...14`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `141871` -&gt; `141871...16`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `141871` -&gt; `141871...17`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `146253` -&gt; `146253...42`</span></span>
+<span><span class="co">#&gt; <span style="color: #00BBBB;">•</span> `146253` -&gt; `146253...43`</span></span></code></pre></div>
 <p><img src="ntdr_files/figure-html/ridership-chart-1.png" width="700"></p>
 </div>
   </main><aside class="col-md-3"><nav id="toc"><h2>On this page</h2>
