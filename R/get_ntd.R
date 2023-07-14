@@ -55,11 +55,11 @@ get_ntd <-
     get_spreadsheet_ncol <- function(ntd_tempfile_path,
                                      sheet) {
       dummy_sheet <- readxl::read_xlsx(ntd_tempfile_path,
-        sheet = sheet,
-        skip = 10,
-        n_max = 1
+                                       sheet = sheet,
+                                       skip = 10,
+                                       n_max = 1
       )
-      ncol(dummy_sheet) - 9 # subtract first 9 columns
+      ncol(dummy_sheet) - 11 # subtract first 12 columns
     }
 
     # adds a month to a date and returns data as character vector
@@ -83,16 +83,18 @@ get_ntd <-
       "active",
       "reporter_type",
       "uza",
+      "uace",
       "uza_name",
       "modes",
       "tos",
+      "modes_simplified",
       monthly_col_names
     )
 
     all_data <- readxl::read_excel(
       ntd_tempfile_path,
       sheet = sheet,
-      skip = 3,
+      skip = 1,
       col_names = ntd_cols
     )
 
@@ -106,7 +108,7 @@ get_ntd <-
     # pivot data
     all_data <- all_data |>
       tidyr::pivot_longer(
-        cols = 10:ncol(all_data),
+        cols = 12:ncol(all_data),
         names_to = "month",
         values_to = "value"
       ) |>

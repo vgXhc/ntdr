@@ -44,6 +44,8 @@ NTD data go back as far as 2002, and some agencies no longer actively report dat
 
 `uza` is an identifier for [urbanized areas](https://www.fhwa.dot.gov/planning/census_issues/urbanized_areas_and_mpo_tma/faq/page01.cfm#q2) and `uza_name` has the name of that area (this will usually be how you will find your local agency). 
 
+Since July 2023, an additional identifier, `uace` is included. In future versions of the dataset, this identifier will likely replace the `uza` variable.
+
 `modes` denotes the type of transit reported on. 
 
 ```{r}
@@ -51,7 +53,7 @@ ntd_data |>
   count(modes)
 ```
 
-There are a lot of different modes, including rather obscure ones like "Inclined Plane" (`IP`) or "Alaska Railroad" (`AR`). You can find documentation of the different modes [here](https://ftis.org/iNTD-Urban/modes.pdf).
+There are a lot of different modes, including rather obscure ones like "Inclined Plane" (`IP`) or "Alaska Railroad" (`AR`). You can find documentation of the different modes [here](https://ftis.org/iNTD-Urban/modes.pdf). Since July 2023, a simplified variable for mode is included, `modes_simplified`, which only distinguishes between bus, rail, ferry, and other.
 
 The `tos` variable represents the "type of service":
 

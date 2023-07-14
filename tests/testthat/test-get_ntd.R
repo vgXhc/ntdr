@@ -21,9 +21,11 @@ test_that("column names are correct", {
       "active",
       "reporter_type",
       "uza",
+      "uace",
       "uza_name",
       "modes",
       "tos",
+      "modes_simplified",
       "month",
       "value",
       "ntd_variable"
