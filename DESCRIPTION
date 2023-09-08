@@ -13,6 +13,8 @@ License: MIT + file LICENSE
 BugReports: https://github.com/vgXhc/ntdr/issues
 Encoding: UTF-8
 Imports: 
+    curl,
+    httr,
     dplyr,
     lubridate,
     purrr,
