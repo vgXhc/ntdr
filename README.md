@@ -15,7 +15,7 @@ data from the National Transit Database (NTD). Without this package,
 getting NTD data involves going to the NTD website and downloading and
 processing a complex Excel workbook.
 
-**Note: The version on CRAN is currently broken (#6). Please install the
+**Note: The version on CRAN is currently broken (#9). Please install the
 development version until the CRAN version is updated.**
 
 The NTD data returned by this package has many quirks. Please use it
@@ -43,22 +43,18 @@ Basic usage:
 library(ntdr)
 ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
 #> New names:
-#> • `156143` -> `156143...15`
-#> • `156143` -> `156143...16`
-#> • `141871` -> `141871...18`
-#> • `141871` -> `141871...19`
-#> • `146253` -> `146253...44`
-#> • `146253` -> `146253...45`
+#> • `2033379` -> `2033379...25`
+#> • `2033379` -> `2033379...27`
 head(ntd_madison)
-#> # A tibble: 6 × 14
-#>   ntd_id_5 ntd_id_4 agency active reporter_type uza   uace  uza_name modes tos  
-#>   <chr>    <chr>    <chr>  <chr>  <chr>         <chr> <chr> <chr>    <chr> <chr>
-#> 1 50005    5005     City … Active Full Reporte… 92    53200 Madison… MB    DO   
-#> 2 50005    5005     City … Active Full Reporte… 92    53200 Madison… MB    DO   
-#> 3 50005    5005     City … Active Full Reporte… 92    53200 Madison… MB    DO   
-#> 4 50005    5005     City … Active Full Reporte… 92    53200 Madison… MB    DO   
-#> 5 50005    5005     City … Active Full Reporte… 92    53200 Madison… MB    DO   
-#> 6 50005    5005     City … Active Full Reporte… 92    53200 Madison… MB    DO   
+#> # A tibble: 6 × 13
+#>   ntd_id_5 ntd_id_4 agency       active reporter_type uace  uza_name modes tos  
+#>   <chr>    <chr>    <chr>        <chr>  <chr>         <chr> <chr>    <chr> <chr>
+#> 1 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   
+#> 2 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   
+#> 3 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   
+#> 4 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   
+#> 5 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   
+#> 6 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   
 #> # ℹ 4 more variables: modes_simplified <chr>, month <date>, value <dbl>,
 #> #   ntd_variable <chr>
 ```

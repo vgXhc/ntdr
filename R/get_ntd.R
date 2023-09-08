@@ -1,4 +1,4 @@
-agency <- month <- TOS <- Modes <- NULL
+agency <- month <- TOS <- Modes <- ntd_id_5 <- NULL
 
 #' Get NTD data
 #'
@@ -56,10 +56,10 @@ get_ntd <-
                                      sheet) {
       dummy_sheet <- readxl::read_xlsx(ntd_tempfile_path,
                                        sheet = sheet,
-                                       skip = 10,
+                                       skip = 9,
                                        n_max = 1
       )
-      ncol(dummy_sheet) - 11 # subtract first 12 columns
+      ncol(dummy_sheet) - 10 # subtract first 12 columns
     }
 
     # adds a month to a date and returns data as character vector
@@ -82,7 +82,6 @@ get_ntd <-
       "agency",
       "active",
       "reporter_type",
-      "uza",
       "uace",
       "uza_name",
       "modes",
@@ -96,7 +95,8 @@ get_ntd <-
       sheet = sheet,
       skip = 1,
       col_names = ntd_cols
-    )
+    ) |>
+      dplyr::filter(!is.na(ntd_id_5)) #remove summary rows at end of sheet
 
 
     # filter data to agency if agency parameter is provided
@@ -108,7 +108,7 @@ get_ntd <-
     # pivot data
     all_data <- all_data |>
       tidyr::pivot_longer(
-        cols = 12:ncol(all_data),
+        cols = 11:ncol(all_data),
         names_to = "month",
         values_to = "value"
       ) |>

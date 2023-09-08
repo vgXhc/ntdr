@@ -20,7 +20,6 @@ test_that("column names are correct", {
       "agency",
       "active",
       "reporter_type",
-      "uza",
       "uace",
       "uza_name",
       "modes",
@@ -52,4 +51,11 @@ test_that("URL contains the right terms for different data_types", {
 
 test_that("function returns error for invalid parameter values", {
   expect_error(get_ntd_url("nonsense"))
+})
+
+test_that("a specific ridership value is correct", {
+  x <- get_ntd()
+  y <- x |> dplyr::filter(agency == "City of Madison" & modes == "MB" & month == "2002-01-01") |>
+    dplyr::pull(value)
+  expect_equal(y, 865836)
 })
