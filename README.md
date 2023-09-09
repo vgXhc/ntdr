@@ -15,9 +15,6 @@ data from the National Transit Database (NTD). Without this package,
 getting NTD data involves going to the NTD website and downloading and
 processing a complex Excel workbook.
 
-**Note: The version on CRAN is currently broken (#9). Please install the
-development version until the CRAN version is updated.**
-
 The NTD data returned by this package has many quirks. Please use it
 with care and [report any issues](https://github.com/vgXhc/ntdr/issues).
 
