@@ -1,4 +1,5 @@
-# ntdr (development version)
+# ntdr 0.3.3
+* Bugfix: Fixing breaking change with the August data release (#12)
 
 # ntdr 0.3.2
 * Bugfix: Change in source data leads to incorrect column labels (#9)

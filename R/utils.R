@@ -2,7 +2,7 @@
 gracefully_fail <- function(remote_file) {
   try_GET <- function(x, ...) {
     tryCatch(
-      httr::GET(url = x, httr::timeout(1), ...),
+      httr::GET(url = x, httr::timeout(10), ...),
       error = function(e) conditionMessage(e),
       warning = function(w) conditionMessage(w)
     )
@@ -29,5 +29,14 @@ gracefully_fail <- function(remote_file) {
   }
 
   # If you are using rvest as I do you can easily read_html in the response
-  rvest::read_html(remote_file)
+  rvest::read_html(resp)
+
+  # If none of the tests fail, return "OK" response
+  return("OK")
+}
+
+#tests for functioning internet connection
+test_1 <- gracefully_fail("https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release")
+if (is.null(test_1)) {
+  return(invisible(NULL))
 }

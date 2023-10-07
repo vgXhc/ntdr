@@ -1,3 +1,40 @@
+#function that checks if URL works and fails gracefully if not
+gracefully_fail <- function(remote_file) {
+  try_GET <- function(x, ...) {
+    tryCatch(
+      httr::GET(url = x, httr::timeout(10), ...),
+      error = function(e) conditionMessage(e),
+      warning = function(w) conditionMessage(w)
+    )
+  }
+  is_response <- function(x) {
+    class(x) == "response"
+  }
+
+  # First check internet connection
+  if (!curl::has_internet()) {
+    message("No internet connection.")
+    return(invisible(NULL))
+  }
+  # Then try for timeout problems
+  resp <- try_GET(remote_file)
+  if (!is_response(resp)) {
+    message(resp)
+    return(invisible(NULL))
+  }
+  # Then stop if status > 400
+  if (httr::http_error(resp)) {
+    httr::message_for_status(resp)
+    return(invisible(NULL))
+  }
+
+  # If you are using rvest as I do you can easily read_html in the response
+  rvest::read_html(remote_file)
+
+  # If none of the tests fail, return "OK" response
+  return("OK")
+}
+
 agency <- month <- TOS <- Modes <- ntd_id_5 <- NULL
 
 #' Get NTD data
@@ -43,12 +80,12 @@ get_ntd <-
     if (cache == TRUE) {
       # check if cache file doesn't exist
       if (!file.exists(ntd_tempfile_path)) {
-        utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, mode = "wb")
+        utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, method = "curl")
       }
       # else do nothing
     } else {
       # if cache isn't set to TRUE
-      utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, mode = "wb")
+      utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, method = "curl")
     }
 
     # to read in spreadsheet we need to determine its number of columns
@@ -120,6 +157,8 @@ get_ntd <-
     all_data
   }
 
+
+
 # retrieve URL for downloading NTD data
 get_ntd_url <- function(data_type = "adjusted") {
   # check for invalid parameters
@@ -134,10 +173,26 @@ get_ntd_url <- function(data_type = "adjusted") {
     page_url <-
       "https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
   }
-  ntd_page <- rvest::read_html(page_url)
+
+  #tests for functioning internet connection
+  can_ntd_be_reached <- gracefully_fail("https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release")
+  if (is.null(can_ntd_be_reached)) {
+    stop()
+  }
+  ntd_page <- httr::GET(page_url) |>
+    rvest::read_html()
   ntd_url <- ntd_page |>
     rvest::html_element(".file--x-office-spreadsheet a") |>
     rvest::html_attr("href")
   paste0("https://www.transit.dot.gov", ntd_url)
 }
+
+# retrieve archived NTD data pin from board
+# # for future version
+# retrieve_pin <- function(ntd_variable, data_type){
+#   stopifnot("The archived data cannot be reached. Check your internet connection, try again later, or set `cache = FALSE`." = check_board_status())
+#   ntdr_board <- pins::board_url("https://ntdr-pins.s3.us-west-2.amazonaws.com/")
+# }
+
+
 
