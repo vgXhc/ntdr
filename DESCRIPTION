@@ -1,7 +1,7 @@
 Package: ntdr
 Type: Package
 Title: Retrieve Data from the National Transit Database
-Version: 0.3.2.9000
+Version: 0.3.3
 Authors@R: person(
     "Harald", "Kliems", 
     email = "kliems@gmail.com", 
