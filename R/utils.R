@@ -13,7 +13,7 @@ gracefully_fail <- function(remote_file) {
 
   # First check internet connection
   if (!curl::has_internet()) {
-    message("No internet connection.")
+    message("No internet connection. The package needs an internet connection to retrieve data.")
     return(invisible(NULL))
   }
   # Then try for timeout problems

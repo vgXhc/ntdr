@@ -36,11 +36,13 @@ ntd_data
 colnames(ntd_data)
 ```
 
-By default, the package downloads what the NTD calls "Complete Monthly Ridership (with adjustments and estimates)." Alternatively you can request `raw` data ("Raw Monthly Ridership (No Adjustments or Estimates)"). For a more detailed discussion of the difference between the two data types, see [this blog post](https://haraldkliems.netlify.app/posts/2023-03-26-understanding-adjusted-data-in-the-national-transit-database/).
+By default, the package downloads what the NTD calls "Complete Monthly Ridership (with adjustments and estimates)." Alternatively you can request `raw` data ("Raw Monthly Ridership (No Adjustments or Estimates)"). The complete data includes the most recent data available. The downside is that depending on the agency, the data may be based on a growth estimate, and there is currently no way to distinguish whether a value is based on an agency's report or on the growth estimate. Thus, very recent values and values for smaller agencies should be interpreted with caution and may be revised later. The `raw` data is the most reliable data, but the dataset only is released once a year. 
 
-You see that the package downloads a fairly large `xlsx` file from the web and returns a tibble with `r nrow(ntd_data)` rows and `r ncol(ntd_data)` columns. The first two columns are identifiers for the transit agency; followed by a human-readable agency name. Note that the agency name may not be what you expect. For example, the name of our local agency in Madison (Wisconsin) is ["Metro Transit"](https://www.cityofmadison.com/metro). But in the NTD data it is listed as "City of Madison". So if you cannot find your agency, use the `uza_name` variable described below.
+The package downloads a fairly large `xlsx` file from the web and returns a tibble with `r nrow(ntd_data)` rows and `r ncol(ntd_data)` columns. The first two columns are identifiers for the transit agency; followed by a human-readable agency name. Note that the agency name may not be what you expect. For example, the name of our local agency in Madison (Wisconsin) is ["Metro Transit"](https://www.cityofmadison.com/metro). But in the NTD data it is listed as "City of Madison". So if you cannot find your agency, use the `uza_name` variable described below.
 
-NTD data go back as far as 2002, and some agencies no longer actively report data, report them under a different ID, or don't even exist anymore. This is reflected in the `active` column. `reporter_type` most commonly takes on the `Full reporter` value, but especially smaller or rural systems may have a different value for this variable. For agencies that aren't full reporters, the NTD data may include projections rather than actually reported data. 
+NTD data go back as far as 2002, and some agencies no longer actively report data, report them under a different ID, or don't even exist anymore. This is reflected in the `active` column. Until April 2024, the `active` data applied to the whole agency  itself. More recently, the data distinguishes between different types of service (see below) within an agency, limiting the usefulness of the variable. I.e. an agency may still actively report data on their directly operated bus service, but they no longer run (and therefore actively report) on light rail service.
+
+The `reporter_type` variable most commonly takes on the `Full reporter` value, but especially smaller or rural systems may have a different value for this variable. For agencies that aren't full reporters, the NTD data may include projections rather than actually reported data. Even for full reporters, most recent data may be based on estimates and may be corrected in future data releases.
 
 `uza` is an identifier for [urbanized areas](https://www.fhwa.dot.gov/planning/census_issues/urbanized_areas_and_mpo_tma/faq/page01.cfm#q2) and `uza_name` has the name of that area (this will usually be how you will find your local agency). 
 
@@ -62,9 +64,9 @@ ntd_data |>
   count(tos, sort = TRUE)
 ```
 
-The most common values are `DO`, which is directly operated service, i.e. a transit agency running their own service; and `PT` for "purchased transportation", i.e. a transit agency contracting out services. Often agencies will have an entry for both of these, with `DO` being the regular, fixed route service and `PT` being paratransit or other more specialized forms of transit.
+The most common values are `DO`, which is directly operated service, i.e. a transit agency running their own service; and `PT` for "purchased transportation", i.e. a transit agency contracting out services. Often agencies will have an entry for both of these, with `DO` being the regular, fixed route service and `PT` being paratransit or other more specialized forms of transit. 
 
-Finally, the `month` and `value` variables provide the actual transit data for a given month. What variable is presented by `value` is in the `ntd_variable`. If you call `get_ntd()` without any additional parameters, it will return the "unlinked passenger trips" (UPT) metric for all agencies, modes, and types of service.
+Finally, the `month` and `value` variables provide the actual transit data for a given month. What variable is represented by `value` is in the `ntd_variable`. If you call `get_ntd()` without any additional parameters, it will return the "unlinked passenger trips" (UPT) metric for all agencies, modes, and types of service.
 
 
 # Plot the data
