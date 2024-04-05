@@ -2,7 +2,7 @@
 
 0 errors | 0 warnings | 0 notes
 
-* This is a patch release, which fixes a new breaking bug.
+* This is a patch release, which updates documentation
 
 ## revdepcheck results
 

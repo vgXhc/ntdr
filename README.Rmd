@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 The `ntdr` package provides a convenient interface to retrieve monthly data from the National Transit Database (NTD). Without this package, getting NTD data involves going to the NTD website and downloading and processing a complex Excel workbook.
 
-The NTD data returned by this package has many quirks. Please use it with care and [report any issues](https://github.com/vgXhc/ntdr/issues). 
+The NTD data returned by this package has many quirks and subtleties. Please use it with care and [report any issues](https://github.com/vgXhc/ntdr/issues). 
 
 To learn more about the package, visit the package website: [https://vgxhc.github.io/ntdr/](https://vgxhc.github.io/ntdr/). 
 
