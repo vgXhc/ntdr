@@ -81,7 +81,7 @@
 <!-- badges: start -->
 
 <p>The <code>ntdr</code> package provides a convenient interface to retrieve monthly data from the National Transit Database (NTD). Without this package, getting NTD data involves going to the NTD website and downloading and processing a complex Excel workbook.</p>
-<p>The NTD data returned by this package has many quirks. Please use it with care and <a href="https://github.com/vgXhc/ntdr/issues" class="external-link">report any issues</a>.</p>
+<p>The NTD data returned by this package has many quirks and subtleties. Please use it with care and <a href="https://github.com/vgXhc/ntdr/issues" class="external-link">report any issues</a>.</p>
 <p>To learn more about the package, visit the package website: <a href="https://vgxhc.github.io/ntdr/" class="uri">https://vgxhc.github.io/ntdr/</a>.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
@@ -100,6 +100,7 @@
 <p>Basic usage:</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://vgxhc.github.io/ntdr/">ntdr</a></span><span class="op">)</span></span>
+<span><span class="co">#&gt; Warning: package 'ntdr' was built under R version 4.3.2</span></span>
 <span><span class="va">ntd_madison</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/get_ntd.html">get_ntd</a></span><span class="op">(</span>data_type <span class="op">=</span> <span class="st">"adjusted"</span>, ntd_variable <span class="op">=</span> <span class="st">"UPT"</span>, agency <span class="op">=</span> <span class="st">"City of Madison"</span>, modes <span class="op">=</span> <span class="st">"MB"</span><span class="op">)</span></span>
 <span><span class="co">#&gt; New names:</span></span>
 <span><span class="co">#&gt; • `2033379` -&gt; `2033379...25`</span></span>
@@ -108,12 +109,12 @@
 <span><span class="co">#&gt; # A tibble: 6 × 13</span></span>
 <span><span class="co">#&gt;   ntd_id_5 ntd_id_4 agency       active reporter_type uace  uza_name modes tos  </span></span>
 <span><span class="co">#&gt;   &lt;chr&gt;    &lt;chr&gt;    &lt;chr&gt;        &lt;chr&gt;  &lt;chr&gt;         &lt;chr&gt; &lt;chr&gt;    &lt;chr&gt; &lt;chr&gt;</span></span>
-<span><span class="co">#&gt; 1 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   </span></span>
-<span><span class="co">#&gt; 2 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   </span></span>
-<span><span class="co">#&gt; 3 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   </span></span>
-<span><span class="co">#&gt; 4 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   </span></span>
-<span><span class="co">#&gt; 5 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   </span></span>
-<span><span class="co">#&gt; 6 50005    5005     City of Mad… Active Full Reporte… 53200 Madison… MB    DO   </span></span>
+<span><span class="co">#&gt; 1 50005    5005     City of Mad… Active Full Reporter 53200 Madison… MB    DO   </span></span>
+<span><span class="co">#&gt; 2 50005    5005     City of Mad… Active Full Reporter 53200 Madison… MB    DO   </span></span>
+<span><span class="co">#&gt; 3 50005    5005     City of Mad… Active Full Reporter 53200 Madison… MB    DO   </span></span>
+<span><span class="co">#&gt; 4 50005    5005     City of Mad… Active Full Reporter 53200 Madison… MB    DO   </span></span>
+<span><span class="co">#&gt; 5 50005    5005     City of Mad… Active Full Reporter 53200 Madison… MB    DO   </span></span>
+<span><span class="co">#&gt; 6 50005    5005     City of Mad… Active Full Reporter 53200 Madison… MB    DO   </span></span>
 <span><span class="co">#&gt; # ℹ 4 more variables: modes_simplified &lt;chr&gt;, month &lt;date&gt;, value &lt;dbl&gt;,</span></span>
 <span><span class="co">#&gt; #   ntd_variable &lt;chr&gt;</span></span></code></pre></div>
 </div>
