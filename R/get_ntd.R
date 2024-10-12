@@ -22,6 +22,10 @@
 #'   the `value` column
 #' @export
 #'
+#' @importFrom rappdirs user_cache_dir
+#' @importFrom utils download.file
+#' @importFrom purrr map list_rbind
+#'
 #' @examplesIf interactive()
 #' get_ntd(agency = "City of Madison", modes = c("MB", "DR"))
 get_ntd <- function(
@@ -90,6 +94,11 @@ get_ntd <- function(
 
 #' Read a single variable from the download NTD Excel file
 #' @noRd
+#' @importFrom readxl read_excel
+#' @importFrom rlang set_names
+#' @importFrom dplyr filter all_of mutate
+#' @importFrom tidyr pivot_longer
+#' @importFrom lubridate parse_date_time
 read_ntd_data <- function(path,
                           ntd_variable = "UPT",
                           agency = NULL,
@@ -150,6 +159,7 @@ read_ntd_data <- function(path,
 
 #' Read a row in spreadsheet to check the number of columns
 #' @noRd
+#' @importFrom readxl read_excel
 get_xlsx_ncol <- function(path,
                           sheet,
                           skip = 9,
@@ -171,6 +181,7 @@ get_xlsx_ncol <- function(path,
 
 #' Filter data by parameter optionally returning all
 #' @noRd
+#' @importFrom rlang inform
 filter_all_data <- function(
     data,
     filter_var,
@@ -202,6 +213,9 @@ filter_all_data <- function(
 
 #' retrieve URL for downloading NTD data
 #' @noRd
+#' @importFrom curl has_internet
+#' @importFrom httr2 request req_url_path_append req_perform resp_body_html
+#' @importFrom rvest html_element html_attr
 get_ntd_url <- function(data_type = "adjusted", call = caller_env()) {
   data_type <- switch(data_type,
     raw = "monthly-module-raw-data-release",
