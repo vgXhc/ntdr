@@ -1,152 +1,225 @@
-agency <- month <- ntd_id_5 <- NULL
 
-#' Get NTD data
+#' Get National Transit Database (NTD) data
 #'
 #' @param agency Name of the transit agency to retrieve. Defaults to `all` agencies
-#' @param data_type Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments and estimates
-#' @param ntd_variable Which variable to return. `UPT` for unlinked passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or `VOMS` for vehicles operated in maximum service.
-#' @param modes Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all` modes.
-#' @param cache Cache downloaded data. Defaults to `FALSE`.
+#' @param data_type Type of NTD data. Either "raw" for data released without
+#'   adjustments or "adjusted" for data with adjustments and estimates
+#' @param ntd_variable Which variable to return. `UPT` for unlinked passenger
+#'   trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or
+#'   `VOMS` for vehicles operated in maximum service.
+#' @param modes Transit mode to retrieve. Common modes include `MB` (bus), `CR`
+#'   (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all`
+#'   modes.
+#' @param cache Cache downloaded data. Defaults to `FALSE`. Set a default value
+#'   with the "ntdr.cache" option.
 #'
-#' @return A data frame of monthly NTD data with the requested ntd_variable in the `value` column
+#' @return A data frame of monthly NTD data with the requested `ntd_variable` in
+#'   the `value` column
 #' @export
 #'
 #' @examplesIf interactive()
 #' get_ntd(agency = "City of Madison", modes = c("MB", "DR"))
-get_ntd <-
-  function(agency = "all",
-           data_type = "adjusted",
-           ntd_variable = "UPT",
-           modes = "all",
-           cache = FALSE) {
-    sheet <- dplyr::case_when(
-      ntd_variable == "UPT" ~ 3,
-      ntd_variable == "VRM" ~ 4,
-      ntd_variable == "VRH" ~ 5,
-      ntd_variable == "VOMS" ~ 6
-    )
-    # function to filter data depending on parameters
-    filter_all_data <- function(filter_var, filter_param) {
-      # if someone provided multiple values with "all" not being the first one, this wouldn't return all values. Maybe fix later
-      if (filter_param[1] != "all") {
-        filter_var <- as.symbol(filter_var)
-        all_data |>
-          dplyr::filter(!!filter_var %in% filter_param)
-      } else {
-        all_data
-      }
-    }
-    ntd_tempfile_name <- paste0("ntd_download_", data_type, ".xlsx")
-    ntd_tempfile_path <- paste0(tempdir(), "/", ntd_tempfile_name)
-
-    # logic for caching files
-    if (cache == TRUE) {
-      # check if cache file doesn't exist
-      if (!file.exists(ntd_tempfile_path)) {
-        utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, method = "curl")
-      }
-      # else do nothing
-    } else {
-      # if cache isn't set to TRUE
-      utils::download.file(get_ntd_url(data_type), ntd_tempfile_path, method = "curl")
-    }
-
-    # to read in spreadsheet we need to determine its number of columns
-    get_spreadsheet_ncol <- function(ntd_tempfile_path,
-                                     sheet) {
-      dummy_sheet <- readxl::read_xlsx(ntd_tempfile_path,
-                                       sheet = sheet,
-                                       skip = 9,
-                                       n_max = 1
-      )
-      ncol(dummy_sheet) - 10 # subtract first 12 columns
-    }
-
-    # adds a month to a date and returns data as character vector
-    add_a_month <- function(x) {
-      start_date <- lubridate::ymd("2002-01-01") # first date reported in NTD
-      lubridate::month(start_date) <- x
-      as.character(start_date)
-    }
-
-    # column names for monthly values
-    monthly_col_names <-
-      purrr::map_chr(
-        1:get_spreadsheet_ncol(ntd_tempfile_path, sheet),
-        add_a_month
-      )
-
-    ntd_cols <- c(
-      "ntd_id_5",
-      "ntd_id_4",
-      "agency",
-      "active",
-      "reporter_type",
-      "uace",
-      "uza_name",
-      "modes",
-      "tos",
-      "modes_simplified",
-      monthly_col_names
-    )
-
-    all_data <- readxl::read_excel(
-      ntd_tempfile_path,
-      sheet = sheet,
-      skip = 1,
-      col_names = ntd_cols
-    ) |>
-      dplyr::filter(!is.na(ntd_id_5)) #remove summary rows at end of sheet
-
-
-    # filter data to agency if agency parameter is provided
-    all_data <-
-      filter_all_data(filter_var = "agency", filter_param = agency)
-    all_data <-
-      filter_all_data(filter_var = "modes", filter_param = modes)
-
-    # pivot data
-    all_data <- all_data |>
-      tidyr::pivot_longer(
-        cols = 11:ncol(all_data),
-        names_to = "month",
-        values_to = "value"
-      ) |>
-      dplyr::mutate(
-        month = lubridate::ymd(month),
-        ntd_variable = ntd_variable
-      )
-
-    all_data
-  }
-
-
-
-# retrieve URL for downloading NTD data
-get_ntd_url <- function(data_type = "adjusted") {
+get_ntd <- function(
+    agency = "all",
+    data_type = "adjusted",
+    ntd_variable = "UPT",
+    modes = "all",
+    cache = getOption("ntdr.cache", FALSE)) {
   # check for invalid parameters
-  if (!data_type %in% c("raw", "adjusted")) {
-    stop("Invalid parameter for data_type. Only `raw` and `adjusted` are allowed.")
-  }
-  if (data_type == "raw") {
-    page_url <-
-      "https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release"
-  }
-  if (data_type == "adjusted") {
-    page_url <-
-      "https://www.transit.dot.gov/ntd/data-product/monthly-module-adjusted-data-release"
+  data_type <- arg_match0(data_type, c("raw", "adjusted"))
+
+  ntd_dir <- tempdir()
+
+  if (cache) {
+    ntd_dir <- rappdirs::user_cache_dir("ntdr")
+
+    if (!dir.exists(ntd_dir)) {
+      dir.create(ntd_dir)
+    }
   }
 
-  #tests for functioning internet connection
-  can_ntd_be_reached <- gracefully_fail("https://www.transit.dot.gov/ntd/data-product/monthly-module-raw-data-release")
-  if (is.null(can_ntd_be_reached)) {
-    stop()
+  ntd_path <- file.path(
+    ntd_dir,
+    paste0("ntd_download_", data_type, ".xlsx")
+  )
+
+  # Download file if cache file doesn't exist or cache is FALSE
+  if (!file.exists(ntd_path) || !cache) {
+    url <- get_ntd_url(data_type)
+    utils::download.file(url, ntd_path, method = "curl")
   }
-  ntd_page <- httr::GET(page_url) |>
-    rvest::read_html()
+
+  ntd_variable <- toupper(ntd_variable)
+
+  ntd_variable <- arg_match(
+    ntd_variable,
+    c("UPT", "VRM", "VRH", "VOMS"),
+    multiple = TRUE
+  )
+
+  if (length(ntd_variable) > 1) {
+    ntd_list <- purrr::map(
+      ntd_variable,
+      \(var) {
+        read_ntd_data(
+          ntd_path,
+          ntd_variable = var,
+          agency = agency,
+          modes = modes
+        )
+      }
+    )
+
+    ntd_data <- purrr::list_rbind(ntd_list)
+  } else {
+    ntd_data <- read_ntd_data(
+      ntd_path,
+      ntd_variable = ntd_variable,
+      agency = agency,
+      modes = modes
+    )
+  }
+
+  ntd_data
+}
+
+#' Read a single variable from the download NTD Excel file
+#' @noRd
+read_ntd_data <- function(path,
+                          ntd_variable = "UPT",
+                          agency = NULL,
+                          modes = NULL,
+                          ...,
+                          call = caller_env()) {
+  sheet <- switch(ntd_variable,
+    "UPT" = 3,
+    "VRM" = 4,
+    "VRH" = 5,
+    "VOMS" = 6
+  )
+
+  ntd_data <- readxl::read_excel(
+    path,
+    sheet = sheet
+  )
+
+  ntd_cols <- c(
+    "ntd_id_5", "ntd_id_4", "agency", "active", "reporter_type",
+    "uace", "uza_name", "modes", "tos", "modes_simplified"
+  )
+
+  monthly_cols <- seq(length(ntd_cols) + 1, ncol(ntd_data))
+
+  ntd_data <- ntd_data |>
+    # Set names
+    rlang::set_names(c(ntd_cols, names(ntd_data)[monthly_cols])) |>
+    # Remove summary rows at end of sheet
+    dplyr::filter(!is.na(.data[["ntd_id_5"]])) |>
+    # Filter by agency
+    filter_all_data(
+      filter_var = "agency",
+      filter_param = agency,
+      call = call
+    ) |>
+    # Filter by mode
+    filter_all_data(
+      filter_var = "modes",
+      filter_param = modes,
+      call = call
+    )
+
+  # pivot data
+  ntd_data_long <- ntd_data |>
+    tidyr::pivot_longer(
+      cols = dplyr::all_of(monthly_cols),
+      names_to = "month",
+      values_to = "value"
+    ) |>
+    dplyr::mutate(
+      month = as.Date(lubridate::parse_date_time(month, orders = "m/Y")),
+      ntd_variable = ntd_variable
+    )
+
+  ntd_data_long
+}
+
+#' Read a row in spreadsheet to check the number of columns
+#' @noRd
+get_xlsx_ncol <- function(path,
+                          sheet,
+                          skip = 9,
+                          n_max = 1,
+                          offset = 10,
+                          ...,
+                          .name_repair = "minimal") {
+  temp_sheet <- readxl::read_xlsx(
+    path,
+    sheet = sheet,
+    skip = skip,
+    n_max = n_max,
+    ...,
+    .name_repair = .name_repair
+  )
+
+  ncol(temp_sheet) - offset
+}
+
+#' Filter data by parameter optionally returning all
+#' @noRd
+filter_all_data <- function(
+    data,
+    filter_var,
+    filter_param,
+    arg = caller_arg(filter_param),
+    call = caller_env()) {
+  if ((filter_param[1] == "all") || is.null(filter_param)) {
+    if (length(filter_param) > 1) {
+      inform(
+        "Additional {.arg {arg}} values are ignored when {.arg {arg}}
+        includes {.val 'all'}"
+      )
+    }
+    return(data)
+  }
+
+  values <- unique(data[[filter_var]])
+
+  arg_match(
+    filter_param,
+    values,
+    multiple = TRUE,
+    error_arg = arg,
+    error_call = call
+  )
+
+  dplyr::filter(data, .data[[filter_var]] %in% filter_param)
+}
+
+#' retrieve URL for downloading NTD data
+#' @noRd
+get_ntd_url <- function(data_type = "adjusted", call = caller_env()) {
+  data_type <- switch(data_type,
+    raw = "monthly-module-raw-data-release",
+    adjusted = "monthly-module-adjusted-data-release"
+  )
+
+  # tests for functioning internet connection
+  if (!curl::has_internet()) {
+    abort(
+      "An internet connection is required to download data
+      from the National Transit Database."
+    )
+  }
+
+  ntd_page <- httr2::request("https://www.transit.dot.gov/ntd/data-product/") |>
+    httr2::req_url_path_append(data_type) |>
+    httr2::req_perform(error_call = call) |>
+    httr2::resp_body_html()
+
   ntd_url <- ntd_page |>
     rvest::html_element(".file--x-office-spreadsheet a") |>
     rvest::html_attr("href")
+
   paste0("https://www.transit.dot.gov", ntd_url)
 }
 

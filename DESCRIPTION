@@ -14,19 +14,21 @@ BugReports: https://github.com/vgXhc/ntdr/issues
 Encoding: UTF-8
 Imports: 
     curl,
-    httr,
     dplyr,
     lubridate,
     purrr,
     readxl,
     rvest,
-    tidyr
-RoxygenNote: 7.2.3
+    tidyr,
+    rlang,
+    httr2,
+    rappdirs
+RoxygenNote: 7.3.2
 Suggests: 
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
-    tidyverse
+    withr
 Config/testthat/edition: 3
 VignetteBuilder: knitr
 URL: https://vgxhc.github.io/ntdr/, https://github.com/vgXhc/ntdr

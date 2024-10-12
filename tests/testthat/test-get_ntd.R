@@ -1,8 +1,6 @@
-test_that("multiplication works", {
-  expect_equal(2 * 2, 4)
-})
-
 test_that("agency accepts character vector of length > 1 as input", {
+  withr::local_options(ntdr.cache = TRUE)
+
   expect_no_error(
     get_ntd(agency = c(
       "City of Madison",
@@ -12,6 +10,8 @@ test_that("agency accepts character vector of length > 1 as input", {
 })
 
 test_that("column names are correct", {
+  withr::local_options(ntdr.cache = TRUE)
+
   expect_equal(
     colnames(get_ntd()),
     c(
@@ -33,12 +33,13 @@ test_that("column names are correct", {
 })
 
 test_that("ntd variable has correct value", {
+  withr::local_options(ntdr.cache = TRUE)
+
   x <- get_ntd()
   y <- get_ntd(ntd_variable = "VRM")
   expect_equal(x$ntd_variable[[1]], "UPT")
   expect_equal(y$ntd_variable[[1]], "VRM")
 })
-
 
 test_that("returns a URL that starts right", {
   expect_match(get_ntd_url(), regexp = "^https://www.transit.dot.gov/sites/fta.dot.gov/files/")
@@ -54,8 +55,14 @@ test_that("function returns error for invalid parameter values", {
 })
 
 test_that("a specific ridership value is correct", {
-  x <- get_ntd()
-  y <- x |> dplyr::filter(agency == "City of Madison" & modes == "MB" & month == "2002-01-01") |>
+  withr::local_options(ntdr.cache = TRUE)
+
+  x <- get_ntd(
+    agency = "City of Madison",
+    modes = "MB"
+  )
+  y <- x |>
+    dplyr::filter(as.character(month) == "2002-01-01") |>
     dplyr::pull(value)
   expect_equal(y, 865836)
 })

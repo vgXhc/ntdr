@@ -2,32 +2,39 @@
 % Please edit documentation in R/get_ntd.R
 \name{get_ntd}
 \alias{get_ntd}
-\title{Get NTD data}
+\title{Get National Transit Database (NTD) data}
 \usage{
 get_ntd(
   agency = "all",
   data_type = "adjusted",
   ntd_variable = "UPT",
   modes = "all",
-  cache = FALSE
+  cache = getOption("ntdr.cache", FALSE)
 )
 }
 \arguments{
 \item{agency}{Name of the transit agency to retrieve. Defaults to `all` agencies}
 
-\item{data_type}{Type of NTD data. Either "raw" for data released without adjustments or "adjusted" for data with adjustments and estimates}
+\item{data_type}{Type of NTD data. Either "raw" for data released without
+adjustments or "adjusted" for data with adjustments and estimates}
 
-\item{ntd_variable}{Which variable to return. `UPT` for unlinked passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or `VOMS` for vehicles operated in maximum service.}
+\item{ntd_variable}{Which variable to return. `UPT` for unlinked passenger
+trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or
+`VOMS` for vehicles operated in maximum service.}
 
-\item{modes}{Transit mode to retrieve. Common modes include `MB` (bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all` modes.}
+\item{modes}{Transit mode to retrieve. Common modes include `MB` (bus), `CR`
+(commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all`
+modes.}
 
-\item{cache}{Cache downloaded data. Defaults to `FALSE`.}
+\item{cache}{Cache downloaded data. Defaults to `FALSE`. Set a default value
+with the "ntdr.cache" option.}
 }
 \value{
-A data frame of monthly NTD data with the requested ntd_variable in the `value` column
+A data frame of monthly NTD data with the requested `ntd_variable` in
+  the `value` column
 }
 \description{
-Get NTD data
+Get National Transit Database (NTD) data
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
