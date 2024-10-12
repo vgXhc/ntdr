@@ -18,13 +18,13 @@ get_ntd(
 \item{data_type}{Type of NTD data. Either "raw" for data released without
 adjustments or "adjusted" for data with adjustments and estimates}
 
-\item{ntd_variable}{Which variable to return. `UPT` for unlinked passenger
-trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue hours, or
-`VOMS` for vehicles operated in maximum service.}
+\item{ntd_variable}{Which variable or variables to return. `UPT` for unlinked
+passenger trips, `VRM` for vehicle revenue miles, `VRH` for vehicle revenue
+hours, or `VOMS` for vehicles operated in maximum service.}
 
-\item{modes}{Transit mode to retrieve. Common modes include `MB` (bus), `CR`
-(commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults to `all`
-modes.}
+\item{modes}{Transit mode or modes to retrieve. Common modes include `MB`
+(bus), `CR` (commuter rail), `HR` (heavy rail), `LR` (light rail). Defaults
+to `all` modes.}
 
 \item{cache}{Cache downloaded data. Defaults to `FALSE`. Set a default value
 with the "ntdr.cache" option.}
@@ -34,7 +34,10 @@ A data frame of monthly NTD data with the requested `ntd_variable` in
   the `value` column
 }
 \description{
-Get National Transit Database (NTD) data
+[get_ntd()] downloads Excel file with the adjusted or raw monthly ridership
+files provided by the National Transit Database and transforms the data into
+a long-format data frame with one or more variable. Optionally cache the
+source spreadsheet or filter by agency or mode.
 }
 \examples{
 \dontshow{if (interactive()) (if (getRversion() >= "3.4") withAutoprint else force)(\{ # examplesIf}
