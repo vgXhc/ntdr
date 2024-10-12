@@ -1,34 +1,38 @@
-Package: ntdr
 Type: Package
+Package: ntdr
 Title: Retrieve Data from the National Transit Database
 Version: 0.3.4.9000
-Authors@R: person(
-    "Harald", "Kliems", 
-    email = "kliems@gmail.com", 
-    role = c("cre", "aut", "cph"),
-    comment = c(ORCID = "0000-0003-2542-0047"))
-Description: Downloads the latest 'National Transit Database' 
-    data, processes it, and returns in a tidy data format.
+Authors@R: c(
+    person("Harald", "Kliems", , "kliems@gmail.com", role = c("cre", "aut", "cph"),
+           comment = c(ORCID = "0000-0003-2542-0047")),
+    person("Eli", "Pousson", , "eli.pousson@gmail.com", role = "ctb",
+           comment = c(ORCID = "0000-0001-8280-1706"))
+  )
+Description: Downloads the latest 'National Transit Database' data,
+    processes it, and returns in a tidy data format.
 License: MIT + file LICENSE
+URL: https://vgxhc.github.io/ntdr/, https://github.com/vgXhc/ntdr
 BugReports: https://github.com/vgXhc/ntdr/issues
-Encoding: UTF-8
 Imports: 
     curl,
     dplyr,
+    httr2 (>= 0.2.3),
     lubridate,
     purrr,
+    rappdirs,
     readxl,
-    rvest,
-    tidyr,
     rlang,
-    httr2,
-    rappdirs
-RoxygenNote: 7.3.2
+    rvest,
+    tidyr
 Suggests: 
+    ggplot2,
     knitr,
     rmarkdown,
     testthat (>= 3.0.0),
     withr
+VignetteBuilder: 
+    knitr
 Config/testthat/edition: 3
-VignetteBuilder: knitr
-URL: https://vgxhc.github.io/ntdr/, https://github.com/vgXhc/ntdr
+Encoding: UTF-8
+Language: en-US
+RoxygenNote: 7.3.2

@@ -22,5 +22,10 @@ Useful links:
 \author{
 \strong{Maintainer}: Harald Kliems \email{kliems@gmail.com} (\href{https://orcid.org/0000-0003-2542-0047}{ORCID}) [copyright holder]
 
+Other contributors:
+\itemize{
+  \item Eli Pousson \email{eli.pousson@gmail.com} (\href{https://orcid.org/0000-0001-8280-1706}{ORCID}) [contributor]
+}
+
 }
 \keyword{internal}
