@@ -20,11 +20,12 @@ The ``ntdr`` package is an easy way to access [National Transit Database](https:
 install.packages("ntdr")
 ```
 
-In addition to loading the `ntdr` package we also load the `tidyverse`.
+In addition to loading the `ntdr` package we also load `dplyr` and `ggplot2`.
 
 ```{r setup}
 library(ntdr)
-library(tidyverse)
+library(dplyr)
+library(ggplot2)
 ```
 
 # `get_ntd()`

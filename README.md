@@ -39,11 +39,16 @@ Basic usage:
 
 ``` r
 library(ntdr)
-#> Warning: package 'ntdr' was built under R version 4.3.2
-ntd_madison <- get_ntd(data_type = "adjusted", ntd_variable = "UPT", agency = "City of Madison", modes = "MB")
-#> New names:
-#> • `2033379` -> `2033379...25`
-#> • `2033379` -> `2033379...27`
+
+options(ntdr.cache = TRUE)
+
+ntd_madison <- get_ntd(
+  data_type = "adjusted",
+  ntd_variable = "UPT",
+  agency = "City of Madison",
+  modes = "MB"
+)
+
 head(ntd_madison)
 #> # A tibble: 6 × 13
 #>   ntd_id_5 ntd_id_4 agency       active reporter_type uace  uza_name modes tos  
