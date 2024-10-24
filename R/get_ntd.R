@@ -37,13 +37,14 @@ get_ntd <- function(
   # check for invalid parameters
   data_type <- arg_match0(data_type, c("raw", "adjusted"))
 
+  # Use temp directory by default or package cache if `cache = TRUE`
   ntd_dir <- tempdir()
 
   if (cache) {
     ntd_dir <- rappdirs::user_cache_dir("ntdr")
 
     if (!dir.exists(ntd_dir)) {
-      dir.create(ntd_dir)
+      dir.create(ntd_dir, recursive = TRUE)
     }
   }
 
@@ -58,6 +59,7 @@ get_ntd <- function(
     utils::download.file(url, ntd_path, method = "curl")
   }
 
+  # Convert lower and mixed case values for ntd_variable
   ntd_variable <- toupper(ntd_variable)
 
   ntd_variable <- arg_match(
@@ -66,6 +68,7 @@ get_ntd <- function(
     multiple = TRUE
   )
 
+  # Read and combine one or more sheets from the source xlsx file
   if (length(ntd_variable) > 1) {
     ntd_list <- purrr::map(
       ntd_variable,
