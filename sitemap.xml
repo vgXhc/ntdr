@@ -1,33 +1,14 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/404.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/LICENSE-text.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/LICENSE.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/articles/index.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/articles/ntdr.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/authors.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/index.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/news/index.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/reference/get_ntd.html</loc>
-  </url>
-  <url>
-    <loc>https://vgxhc.github.io/ntdr/reference/index.html</loc>
-  </url>
+<urlset xmlns = 'http://www.sitemaps.org/schemas/sitemap/0.9'>
+<url><loc>https://vgxhc.github.io/ntdr/404.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/LICENSE-text.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/LICENSE.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/articles/index.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/articles/ntdr.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/authors.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/index.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/news/index.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/reference/get_ntd.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/reference/index.html</loc></url>
+<url><loc>https://vgxhc.github.io/ntdr/reference/ntdr-package.html</loc></url>
 </urlset>
+
