@@ -1,10 +1,12 @@
-# ntdr (development version)
+# ntdr 0.4.0
 
 * Remove httr from Imports and tidyverse from Suggests
 * Add tidyr, rappdirs, httr2, and rlang to Imports and add withr to Suggests.
-* Improve validation for `agency` and `modes` arguments.
-* Add supporting for setting `cache` argument with an option.
-* Add package-level documentation.
+* Improve validation for `agency` and `modes` arguments
+* Add supporting for setting `cache` argument with an option
+* Add package-level documentation
+* Thanks to new contributor [Eli Pousson](https://github.com/elipousson/) for making all these improvements
+
 
 # ntdr 0.3.4
 * small updates to documentation to account for changes in April data release (#14)
