@@ -3,7 +3,7 @@ pkgdown: 2.1.1
 pkgdown_sha: ~
 articles:
   ntdr: ntdr.html
-last_built: 2024-10-25T13:52Z
+last_built: 2024-10-25T17:22Z
 urls:
   reference: https://vgxhc.github.io/ntdr/reference
   article: https://vgxhc.github.io/ntdr/articles
