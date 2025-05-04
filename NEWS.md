@@ -1,4 +1,6 @@
-# ntdr (development version)
+# ntdr 0.4.1
+
+* Bugfix: fixes breaking change with ability to download data (#22)
 
 # ntdr 0.4.0
 

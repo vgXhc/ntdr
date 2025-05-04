@@ -2,7 +2,7 @@
 
 0 errors | 0 warnings | 0 notes
 
-* This is a minor version release, which updates cache handling and adds a feature to specify multiple data types
+* This is a patch release, which fixes a bug related to accessing the National Transit Database server
 
 ## revdepcheck results
 

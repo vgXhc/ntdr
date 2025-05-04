@@ -56,7 +56,11 @@ get_ntd <- function(
   # Download file if cache file doesn't exist or cache is FALSE
   if (!file.exists(ntd_path) || !cache) {
     url <- get_ntd_url(data_type)
-    utils::download.file(url, ntd_path, method = "curl")
+    httr2::request(url) |>
+    #httr2::req_url_path_append("sites/fta.dot.gov/files/2025-04/February%202025%20Complete%20Monthly%20Ridership%20%28with%20adjustments%20and%20estimates%29_250401.xlsx") |>
+      httr2::req_user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:137.0) Gecko/20100101 Firefox/137.0") |>
+      httr2::req_perform(path = ntd_path)
+    #utils::download.file(url, ntd_path, method = "curl")
   }
 
   # Convert lower and mixed case values for ntd_variable
@@ -235,6 +239,7 @@ get_ntd_url <- function(data_type = "adjusted", call = caller_env()) {
 
   ntd_page <- httr2::request("https://www.transit.dot.gov/ntd/data-product/") |>
     httr2::req_url_path_append(data_type) |>
+    httr2::req_user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:137.0) Gecko/20100101 Firefox/137.0") |>
     httr2::req_perform(error_call = call) |>
     httr2::resp_body_html()
 
