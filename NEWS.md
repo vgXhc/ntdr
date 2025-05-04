@@ -1,4 +1,5 @@
-# ntdr (development version)
+# ntdr 0.4.1
+* Bugfix: Fixing breaking issues with server connectivity (#22)
 
 # ntdr 0.4.0
 
