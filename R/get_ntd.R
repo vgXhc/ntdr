@@ -56,7 +56,9 @@ get_ntd <- function(
   # Download file if cache file doesn't exist or cache is FALSE
   if (!file.exists(ntd_path) || !cache) {
     url <- get_ntd_url(data_type)
-    utils::download.file(url, ntd_path, method = "curl")
+    httr2::request(url) |>
+      httr2::req_user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:137.0) Gecko/20100101 Firefox/137.0") |>
+      httr2::req_perform(path = ntd_path)
   }
 
   # Convert lower and mixed case values for ntd_variable
@@ -235,6 +237,7 @@ get_ntd_url <- function(data_type = "adjusted", call = caller_env()) {
 
   ntd_page <- httr2::request("https://www.transit.dot.gov/ntd/data-product/") |>
     httr2::req_url_path_append(data_type) |>
+    httr2::req_user_agent("Mozilla/5.0 (Macintosh; Intel Mac OS X 10.15; rv:137.0) Gecko/20100101 Firefox/137.0") |>
     httr2::req_perform(error_call = call) |>
     httr2::resp_body_html()
 
@@ -245,9 +248,3 @@ get_ntd_url <- function(data_type = "adjusted", call = caller_env()) {
   paste0("https://www.transit.dot.gov", ntd_url)
 }
 
-# retrieve archived NTD data pin from board
-# # for future version
-# retrieve_pin <- function(ntd_variable, data_type){
-#   stopifnot("The archived data cannot be reached. Check your internet connection, try again later, or set `cache = FALSE`." = check_board_status())
-#   ntdr_board <- pins::board_url("https://ntdr-pins.s3.us-west-2.amazonaws.com/")
-# }

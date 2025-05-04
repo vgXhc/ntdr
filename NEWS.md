@@ -1,5 +1,6 @@
 # ntdr 0.4.1
-* Bugfix: Fixing breaking issues with server connectivity (#22)
+
+* Bugfix: fixes breaking change with ability to download data (#22)
 
 # ntdr 0.4.0
 
