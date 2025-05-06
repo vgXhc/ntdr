@@ -1,6 +1,10 @@
 ---
 title: "ntdr"
-output: rmarkdown::html_vignette
+output: 
+  rmarkdown::html_vignette:
+    md_extensions: [ 
+      "-autolink_bare_uris" 
+    ]
 vignette: >
   %\VignetteIndexEntry{ntdr}
   %\VignetteEngine{knitr::rmarkdown}
@@ -14,7 +18,7 @@ knitr::opts_chunk$set(
 )
 ```
 
-The ``ntdr`` package is an easy way to access [National Transit Database](https://www.transit.dot.gov/ntd/ntd-data) from R. The package is available on CRAN, or you can install the latest development version from Github with `remotes::install_github("vgXhc/ntdr")`
+The ``ntdr`` package is an easy way to access National Transit Database `https://www.transit.dot.gov/ntd/ntd-data` from R. The package is available on CRAN, or you can install the latest development version from Github with `remotes::install_github("vgXhc/ntdr")`
 
 ```{r eval=FALSE}
 install.packages("ntdr")
