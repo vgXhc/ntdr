@@ -24,12 +24,12 @@ To learn more about the package, visit the package website:
 
 ## Installation
 
+The package currently does not pass CRAN checks and you need to install
+the development version.
+
 ``` r
-# The latest stable version can be installed from CRAN:
-install.packages("ntdr")
 
-
-# Alternatively, install the latest development version from GitHub:
+# Install the latest development version from GitHub:
 remotes::install_github("vgXhc/ntdr")
 ```
 
