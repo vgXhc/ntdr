@@ -89,7 +89,7 @@ doesn’t have any required parameters:</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">ntd_data</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/get_ntd.html">get_ntd</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">ntd_data</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 642,458 × 13</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 646,443 × 13</span></span></span>
 <span><span class="co">#&gt;    ntd_id_5 ntd_id_4 agency      active reporter_type uace  uza_name modes tos  </span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>       <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 00001    0001     King County Active Full Reporter 80389 Seattle… DR    PT   </span></span>
@@ -102,7 +102,7 @@ doesn’t have any required parameters:</p>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 00001    0001     King County Active Full Reporter 80389 Seattle… DR    PT   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 00001    0001     King County Active Full Reporter 80389 Seattle… DR    PT   </span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 00001    0001     King County Active Full Reporter 80389 Seattle… DR    PT   </span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 642,448 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 646,433 more rows</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ 4 more variables: modes_simplified &lt;chr&gt;, month &lt;date&gt;, value &lt;dbl&gt;,</span></span></span>
 <span><span class="co">#&gt; <span style="color: #949494;">#   ntd_variable &lt;chr&gt;</span></span></span>
 <span><span class="fu"><a href="https://rdrr.io/r/base/colnames.html" class="external-link">colnames</a></span><span class="op">(</span><span class="va">ntd_data</span><span class="op">)</span></span>
@@ -122,7 +122,7 @@ agencies should be interpreted with caution and may be revised later.
 The <code>raw</code> data is the most reliable data, but the dataset
 only is released once a year.</p>
 <p>The package downloads a fairly large <code>xlsx</code> file from the
-web and returns a tibble with 642458 rows and 13 columns. The first two
+web and returns a tibble with 646443 rows and 13 columns. The first two
 columns are identifiers for the transit agency; followed by a
 human-readable agency name. Note that the agency name may not be what
 you expect. For example, the name of our local agency in Madison
@@ -158,25 +158,25 @@ replace the <code>uza</code> variable.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 19 × 2</span></span></span>
 <span><span class="co">#&gt;    modes      n</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> AR       278</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> CB     <span style="text-decoration: underline;">40</span>032</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CC       278</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CR     <span style="text-decoration: underline;">10</span>564</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> DR    <span style="text-decoration: underline;">268</span>270</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> FB     <span style="text-decoration: underline;">13</span>622</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> HR      <span style="text-decoration: underline;">4</span>448</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> IP      <span style="text-decoration: underline;">1</span>112</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> LR      <span style="text-decoration: underline;">9</span>730</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> MB    <span style="text-decoration: underline;">226</span>014</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> MG      <span style="text-decoration: underline;">2</span>224</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> OR       556</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> PB       278</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> RB      <span style="text-decoration: underline;">5</span>560</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> SR      <span style="text-decoration: underline;">8</span>896</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span> TB      <span style="text-decoration: underline;">4</span>170</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span> TR       556</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span> VP     <span style="text-decoration: underline;">43</span>924</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span> YR      <span style="text-decoration: underline;">1</span>946</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> AR       279</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> CB     <span style="text-decoration: underline;">40</span>734</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> CC       279</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> CR     <span style="text-decoration: underline;">10</span>602</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> DR    <span style="text-decoration: underline;">269</span>514</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> FB     <span style="text-decoration: underline;">13</span>671</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> HR      <span style="text-decoration: underline;">4</span>464</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> IP      <span style="text-decoration: underline;">1</span>116</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> LR      <span style="text-decoration: underline;">9</span>765</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> MB    <span style="text-decoration: underline;">226</span>827</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">11</span> MG      <span style="text-decoration: underline;">2</span>232</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">12</span> OR       558</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">13</span> PB       279</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">14</span> RB      <span style="text-decoration: underline;">6</span>138</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">15</span> SR      <span style="text-decoration: underline;">9</span>207</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">16</span> TB      <span style="text-decoration: underline;">4</span>185</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">17</span> TR       558</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">18</span> VP     <span style="text-decoration: underline;">44</span>082</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">19</span> YR      <span style="text-decoration: underline;">1</span>953</span></span></code></pre></div>
 <p>There are a lot of different modes, including rather obscure ones
 like “Inclined Plane” (<code>IP</code>) or “Alaska Railroad”
 (<code>AR</code>). You can find documentation of the different modes <a href="https://ftis.org/iNTD-Urban/modes.pdf" class="external-link">here</a>. Since July 2023,
@@ -190,10 +190,10 @@ rail, ferry, and other.</p>
 <span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 4 × 2</span></span></span>
 <span><span class="co">#&gt;   tos        n</span></span>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> DO    <span style="text-decoration: underline;">326</span>650</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> PT    <span style="text-decoration: underline;">274</span>664</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> TX     <span style="text-decoration: underline;">35</span>028</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> TN      <span style="text-decoration: underline;">6</span>116</span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> DO    <span style="text-decoration: underline;">328</span>941</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> PT    <span style="text-decoration: underline;">275</span>931</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> TX     <span style="text-decoration: underline;">35</span>154</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> TN      <span style="text-decoration: underline;">6</span>417</span></span></code></pre></div>
 <p>The most common values are <code>DO</code>, which is directly
 operated service, i.e. a transit agency running their own service; and
 <code>PT</code> for “purchased transportation”, i.e. a transit agency
