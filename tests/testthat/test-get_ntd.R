@@ -66,3 +66,18 @@ test_that("a specific ridership value is correct", {
     dplyr::pull(value)
   expect_equal(y, 865836)
 })
+
+test_that("a specific RAW data value is correct", {
+  withr::local_options(ntdr.cache = TRUE)
+
+  x <- get_ntd(
+    agency = "City of Madison",
+    modes = "MB",
+    data_type = "raw"
+  )
+  y <- x |>
+    dplyr::filter(as.character(month) == "2002-01-01") |>
+    dplyr::pull(value)
+  expect_equal(y, 865836)
+
+})

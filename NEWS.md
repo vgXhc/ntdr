@@ -1,3 +1,7 @@
+# ntdr 0.4.2
+
+* Bugfix: fixes breaking change in raw data layout (#25)
+
 # ntdr 0.4.1
 
 * Bugfix: fixes breaking change with ability to download data (#22)
