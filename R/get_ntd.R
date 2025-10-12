@@ -110,12 +110,7 @@ read_ntd_data <- function(path,
                           modes = NULL,
                           ...,
                           call = caller_env()) {
-  sheet <- switch(ntd_variable,
-    "UPT" = 3,
-    "VRM" = 4,
-    "VRH" = 5,
-    "VOMS" = 6
-  )
+  sheet <- ntd_variable
 
   ntd_data <- readxl::read_excel(
     path,
