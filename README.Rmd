@@ -21,6 +21,8 @@ knitr::opts_chunk$set(
 [![CRAN status](https://www.r-pkg.org/badges/version/ntdr)](https://cran.r-project.org/package=ntdr)
 <!-- badges: end -->
 
+**January 2025: Unfortunately, the package no longer works. Download requests from the package to the US Department of Transportation's servers are getting blocked.**
+
 The `ntdr` package provides a convenient interface to retrieve monthly data from the National Transit Database (NTD). Without this package, getting NTD data involves going to the NTD website and downloading and processing a complex Excel workbook.
 
 The NTD data returned by this package has many quirks and subtleties. Please use it with care and [report any issues](https://github.com/vgXhc/ntdr/issues). 

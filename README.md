@@ -10,6 +10,10 @@
 status](https://www.r-pkg.org/badges/version/ntdr)](https://cran.r-project.org/package=ntdr)
 <!-- badges: end -->
 
+**January 2025: Unfortunately, the package no longer works. Download
+requests from the package to the US Department of Transportation’s
+servers are getting blocked.**
+
 The `ntdr` package provides a convenient interface to retrieve monthly
 data from the National Transit Database (NTD). Without this package,
 getting NTD data involves going to the NTD website and downloading and
