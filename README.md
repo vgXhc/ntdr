@@ -10,6 +10,19 @@
 status](https://www.r-pkg.org/badges/version/ntdr)](https://cran.r-project.org/package=ntdr)
 <!-- badges: end -->
 
+**February 2026: The package has become obsolete and will no longer be
+updated. To obtain NTD data, you should use the excellent
+[`socratadata`](https://ryanzomorrodi.github.io/socratadata/) package to
+access the data.transportation.gov API.**
+
+    # old way to obtain data
+    library(ntdr)
+    get_ntd()
+
+    # new way to obtain data
+    library(socratadata)
+    soc_read("https://data.transportation.gov/Public-Transit/Complete-Monthly-Ridership-with-Adjustments-and-Es/8bui-9xvu/about_data")
+
 **January 2025: Unfortunately, the package no longer works. Download
 requests from the package to the US Department of Transportation’s
 servers are getting blocked.**
